@@ -1,0 +1,81 @@
+:root {
+    --primary: #ffd600;
+    --secondary: #7AB730;
+    --tertiary: #e9e4e0;
+    --light: #f6f6f6;
+    --dark: #1c1c1c;
+}
+
+@media only screen and (max-width: 37.5rem) {
+
+    .topbar {
+        display: none;
+    }
+
+    .navbar {
+        position: relative;
+        
+    }
+
+
+    .navbar .shopping, .user, .heart {
+        display: none;
+    }
+
+    .navbar .menu-bar {
+        display: block;
+        grid-column: 11/12;
+        font-size: 2rem;
+        cursor: pointer;
+        font-size: 1.5rem;
+    }
+
+    .navbar .menu {
+        position: absolute;
+        width: 100%;
+        height: 70vh;
+        display: grid;
+        align-items: center;
+        background-color: var(--primary);
+        margin-top: 30rem;
+        transform: translateX(180%);
+        transition: all 1.5s;
+    }
+
+    .navbar .menu-toggle {
+        transform: translateX(70%);
+    }
+
+
+    /* Section Main */
+
+    .hero .info-content {
+        grid-column: 2/10;
+        grid-row: 5/7;
+    }
+
+    .hero h3 {
+        font-size: 1.2rem;
+    }
+    .hero h1 {
+        font-size: 3rem;
+    }
+
+    .hero p {
+        font-size: .875rem;
+    }
+
+    .hero .btn {
+        font-size: .9rem;
+    }
+
+    /* Section Footer */
+
+    .footer .follow-me {
+        display: none;
+    }
+
+    .footer .social-network {
+        text-align: center;
+    }
+}
