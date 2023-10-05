@@ -9,6 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="../css/mediaQueries.css">
+
     <title>Paw | Contacto</title>
 </head>
 <body>
@@ -49,8 +50,6 @@
             </nav>
         </section>
 
-
-
         <nav class="navbar">
             <img src="../img/isologo.png" class="logo" alt="logo petshop paw">
             <ul class="menu" id="menu">
@@ -58,7 +57,7 @@
                 <li><a href="./services.html">Servicios</a></li>
                 <li><a href="./products.html">Productos</a></li>
                 <li><a href="./about.html">Nosotros</a></li>
-                <!-- <li><a href="./contact.html">Contacto</a></li> -->
+                <li><a href="./contact.html">Contacto</a></li> <!-- Agregamos el enlace a la página de contacto -->
             </ul>
             <div class="menu-bar" id="menu-bar">
                 <i class="fa-solid fa-bars"></i>
@@ -76,26 +75,93 @@
     </header>
 
     <main>
+        <br>
+        <center>
         <h1>CONTACTO</h1>
+        
+            <form action="mostrar_datos.html" target="_blank">
+            
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" required>
+        
+            <label for="correo">Correo Electrónico:</label>
+            <input type="email" id="correo" name="correo" required>
+        
+            <label for="telefono">Teléfono:</label>
+            <input type="tel" id="telefono" name="telefono">
+        
+            <label for="mensaje">Mensaje:</label>
+            <textarea id="mensaje" name="mensaje" rows="4" required></textarea>
+        </form>
+        <br>
+        <h1>¡CONTRATA NUESTROS SERVICIOS!</h1>  
+        <form action="mostrar_datos.html" target="_blank">
+            <label for="servicio">Seleccione un servicio de interés:</label>
+            <select id="servicio" name="servicio">
+                <option value="venta">Venta de productos para mascotas</option>
+                <option value="alojamiento">Alojamiento para mascotas</option>
+                <option value="aseo">Aseo y tratamiento de mascotas</option>
+                <option value="alimentacion">Alimentación de mascotas</option>
+                <option value="entrenamiento">Entrenamiento de mascotas</option>
+            </select>
+        
+            <label for="consulta">Comentario adicional (opcional):</label>
+            <textarea id="consulta" name="consulta" rows="4"></textarea>
+        
+            <label for="fecha">Fecha de servicio:</label>
+            <input type="date" id="fecha" name="fecha">
+        
+            <label for="hora">Hora de servicio:</label>
+            <input type="time" id="hora" name="hora">
+        
+            <input type="submit" value="Enviar">
+        </form>
+        </center>
+        
     </main>
-
-
     <footer class="footer">
-        <div class="listen-online">
-            <i class="fa-solid fa-headphones"></i>
-            <h2></h2>
+        <div class="logo">
+            <!-- <picture class=""> -->
+                <img alt="full logo" src="../img/isologo.png">
+            <!-- </picture> -->
         </div>
-        <div class="follow-me">
-            <h2>Sígueme</h2>
+
+        <div class="left">
+            <ul class="list-pages">
+                <li class="item"><a href="../pages/about.html" class="link">Empresa</a></li>
+                <li class="item"><a href="../pages/contact.html" class="link">Contacto</a></li>
+                <li class=item"><a href="#" class="link">Blog</a></li>
+                <li class="item"><a href="../pages/terminosyCondiciones.html" class="link">Términos y Condiciones</a></li>
+                <li class="item"><a href="../pages/botonDeArrepentimiento.html" class="link">Botón de Arrepentimiento</a></li>
+            </ul>
         </div>
-        <div class="social-network">
-            <i class="fa-brands fa-facebook-f"></i>
-            <i class="fa-brands fa-x-twitter"></i>
-            <i class="fa-brands fa-instagram"></i>
+        
+        <div class="right">
+            <h5 class="title">Suscríbete a nuestro Newsletter</h5>
+            <form action="" class="data">
+                <input type="email" placeholder="nombre@mail.com" class="email">
+                <input type="submit" value="Enviar" class="submit">
+            </form>
+            <h5 class="rrss">Nuestras Redes Sociales</h5>
+            <ul class="list-rrss">
+                <li><i class="fa-brands fa-facebook-f"></i></li>
+                <li><i class="fa-brands fa-x-twitter"></i></li>
+                <li><i class="fa-brands fa-instagram"></i></li>
+            </ul>
+        </div>
+
+
+
+
+        <div class="foot">
+            <p class="copy-bigfoot">Todos los derechos reservados ©2023 | Hecho con <span class="heart">♥️ </span>by  <a href="#">Paw PetShop</a>.</p>
+        </div>
+
+        <div class="dog-snout">
+            <img src="../img/dog-snout.png">
         </div>
     </footer>
-
-
+    
     <script src="https://kit.fontawesome.com/7a9e4a4ed4.js" crossorigin="anonymous"></script>
     <script src="../js/scripts.js"></script>
 </body>

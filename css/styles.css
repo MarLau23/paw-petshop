@@ -1197,3 +1197,57 @@ body{
 #terminosyCondiciones p{
     text-align: justify;
 }
+/*PRUEBA*/
+form {
+    background-color: var(--light);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+form label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+}
+
+form input[type="text"],
+form input[type="email"],
+form input[type="tel"],
+form select,
+form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid var(--tertiary);
+    border-radius: 5px;
+}
+
+form select {
+    appearance: none; /* Oculta la flecha de selección en ciertos navegadores */
+}
+
+form input[type="submit"] {
+    background-color: var(--primary);
+    color: var(--light);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+form input[type="submit"]:hover {
+    background-color: var(--secondary);
+}
+
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    resize: vertical; /* Permite que el usuario pueda redimensionar verticalmente */
+    min-height: 150px; /* Establece una altura mínima para evitar un rectángulo gigante */
+}
