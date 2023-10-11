@@ -33,10 +33,13 @@
                                 <i class="fa-solid fa-phone"></i>
                             </span>
                             <div class="text-phone">
-                                <p>+54 1122 3344</p>
+                                <p>+54 1122 334455</p>
                             </div>
                         </div>
                     </li>
+                    <div class="search">
+                        <input type="text" placeholder="Búsqueda" id="search-input">
+                    </div>      
                     <li class="contact-item grid-item">
                         <div class="social-media">
                             <div class="icon-rrss">
@@ -58,7 +61,13 @@
 
             <ul class="menu" id="menu">
                 <li><a href="#">Home</a></li>
-                <li><a href="./pages/services.html">Servicios</a></li>
+                <li><a href="./pages/services.html">Servicios</a>
+                    <ul class="submenu" id="submenu">
+                        <li><a href="./pages/services.html">Alojamiento para Mascotas</a></li>
+                        <li><a href="#">Aseo y tratamiento de mascotas</a></li>
+                        <li><a href="#">Entrenamiento de Mascotas</a></li>
+                        <li><a href="#">Colocación de microchip</a></li>
+                    </ul>
                 <li><a href="./pages/products.html">Productos</a></li>
                 <li><a href="./pages/about.html">Nosotros</a></li>
                 <li><a href="./pages/contact.html">Contacto</a></li>
@@ -82,8 +91,8 @@
         <div class="hero">
             <div class="info-content">
                 <h3>Paw PetShop</h3>
-                <h1>Tu mascota feliz</h1>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aspernatur temporibus voluptate veritatis perferendis doloremque dolores quibusdam enim dicta nesciunt libero.</p>
+                <h1>Tu mascota Felíz</h1>
+                <p>En Paw entendemos lo emocionante que es la llegada de una nueva mascota a tu hogar. Es un momento especial lleno de alegría y amor. En nuestra tienda en línea está diseñada pensando en vos y en tus nuevas mascotas, ofreciendo una amplia gama de kits especialmente diseñados para ayudarte a dar la bienvenida a tu nuevo amigo peludo .</p>
                 <button class="btn">Leer más &rarr;</button>
             </div>
         </div>
@@ -95,9 +104,8 @@
         <section class="services">
 
             <div class="heading">
-                <h2 class="head">nuestros servicios</h2>
-                <p class="text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aut modi quae minima cupiditate reiciendis consequuntur sequi culpa eligendi.
-                </p>
+                <h2 class="head">Nuestros Servicios</h2>
+                <p class="text">Nuestro equipo de amantes de los animales está aquí para atender todas las necesidades de tus adorables compañeros, desde comida y accesorios de alta calidad hasta servicios de aseo y cuidado.</p>
             </div>
 
             <div class="number_1">
@@ -118,26 +126,29 @@
             </div>
 
             <div class="detail service_1">
-                <h3>Alojamiento para mascotas</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo cum ad distinctio veniam laudantium.</p>
+                <h3>Alojamiento para Mascotas</h3>
+                <p>Cuando necesites un lugar seguro y cómodo para dejar a tus mascotas mientras estás fuera, ¡estamos aquí para ayudarte! Nuestra guardería y servicio de hospedaje ofrecen un ambiente cariñoso y lleno de diversión, donde tus mascotas pueden socializar y recibir atención constante.</p>
                 <button class="btn">Más detalles &rarr;</button>
             </div>
 
             <div class="detail service_2">
                 <h3>Aseo y tratamiento de mascotas</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo cum ad distinctio veniam laudantium.</p>
+                <p>Nuestro equipo de expertos en cuidado animal se enorgullece de ofrecer servicios de aseo de primera clase para tus mascotas. Desde baños relajantes hasta cortes de pelo con estilo, nos aseguramos de que tus peludos se vean y se sientan mejor que nunca.</p>
+                <br>
                 <button class="btn">Más detalles &rarr;</button>
             </div>
 
             <div class="detail service_3">
-                <h3>Entrenamiento de mascotas</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo cum ad distinctio veniam laudantium.</p>
+                <h3>Entrenamiento de Mascotas</h3>
+                <p>Nuestro servicio de entrenamiento para mascotas está diseñado para ayudarte a fortalecer el vínculo con tu amigo peludo y garantizar que ambos disfruten de una relación equilibrada y llena de amor.</p>
+                <br>
+                <br>
                 <button class="btn">Más detalles &rarr;</button>
             </div>
 
             <div class="detail service_4">
                 <h3>Colocación de microchip</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo cum ad distinctio veniam laudantium.</p>
+                <p>Comprendemos que la seguridad y el bienestar de tus mascotas son de suma importancia. Es por eso que ofrecemos un servicio de colocación de microchip profesional y confiable para garantizar que tus amigos de cuatro patas estén siempre protegidos.</p>
                 <button class="btn">Más detalles &rarr;</button>
             </div>
 
@@ -147,8 +158,8 @@
         <section class="offer">
             <div class="heading">
                 <h2 class="head">oferta especial</h2>
-                <h3>Ahorre 50% en todos los artículos en su primer pedido.</h3>
-                <p class="text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aut modi quae minima cupiditate reiciendis.
+                <h3>Ahorre 35% en todos los artículos premium para felinos.</h3>
+                <p class="text">¡No te pierdas esta oportunidad de darle a tu gato la experiencia culinaria que se merece!
                 </p>
                 <button class="btn">Comprar Ahora</button>
                 <button class="btn">Leer más &rarr;</button>
@@ -165,23 +176,22 @@
 
         <section class="about">
             <div class="heading">
-                <h2 class="head">acerca de nosotros</h2>
+                <h2 class="head">Acerca de Nosotros</h2>
                 <!-- <h3>Mantenemos felices a tus mascotas todo el tiempo</h3> -->
-                <p class="text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aut modi quae minima cupiditate reiciendis. Aut modi quae minima cupiditate reiciendis.
+                <p class="text">Lo que nos distingue es nuestro compromiso inquebrantable con el bienestar de las mascotas. No solo somos una tienda de productos y servicios; somos una comunidad de personas que comparten un amor genuino por los animales y un compromiso con su felicidad y salud. Nuestro equipo de expertos en cuidado animal está aquí para brindarte orientación, apoyo y los mejores productos y servicios para que tus mascotas vivan vidas plenas y saludables.
                 </p>
             </div>
             
             <div class="mission">
                 
-                <h2 class="head">nuestra misión</h2>
-                <p class="text">Lorem ipsum dolor sit amet consectetur adipiscing elit enim erat tempor et sapien lectus per, gravida euismod nulla condimentum molestie mi augue habitasse nibh ad aliquam senectus. Viverra odio malesuada leo aliquam penatibus tincidunt eros cubilia accumsan mus, arcu ad nibh mauris augue fringilla etiam nisi.</p> 
-                <p>Viverra odio malesuada leo aliquam penatibus tincidunt eros cubilia accumsan mus, arcu ad nibh mauris augue fringilla etiam nisi. 
-                </p>
+                <h2 class="head">Nuestra Misión</h2>
+                <p class="text">Cada cola que se agita, cada maullido y cada ladrido nos llena de alegría y nos inspira a seguir trabajando incansablemente para hacer de este mundo un lugar mejor para nuestros amigos peludos. Nos enorgullece ser parte de tu historia junto a tus mascotas, y esperamos que te unas a nosotros en este hermoso viaje de amor y cuidado hacia ellos.</p> 
+                
             </div>
 
             <div class="vision">
-                <h2 class="head">nuestra visión</h2>
-                <p class="text">Lorem ipsum dolor sit amet consectetur adipiscing elit enim erat tempor et sapien lectus per, gravida euismod nulla condimentum molestie mi augue habitasse nibh ad aliquam senectus. Viverra odio malesuada leo aliquam penatibus tincidunt eros cubilia accumsan mus, arcu ad nibh mauris augue fringilla etiam nisi. 
+                <h2 class="head">Nuestra Visión</h2>
+                <p class="text">Visualizamos un mundo en el que cada mascota sea amada, cuidada y tratada con el respeto y la atención que merece. Trabajamos incansablemente para promover la adopción responsable, la salud y la felicidad de las mascotas y para ser una fuente confiable de información y recursos para nuestros clientes. 
                 </p>
             </div>
             
@@ -206,9 +216,9 @@
                 </div>
 
                 <div class="heading">
-                    <h2 class="head">productos para tus mascotas</h2>
+                    <h2 class="head">Productos para tus mascotas</h2>
                     <!-- <h3>Mantenemos felices a tus mascotas todo el tiempo</h3> -->
-                    <p class="text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aut modi quae minima cupiditate reiciendis. Aut modi quae minima cupiditate reiciendis.
+                    <p class="text">Nos esforzamos por brindarte la mejor calidad, variedad y servicio para que tanto tú como tus mascotas estén completamente satisfechos.
                     </p>
                 </div>
 
@@ -293,8 +303,9 @@
                 <img alt="full logo" src="../img/isologo.png">
             <!-- </picture> -->
         </div>
-
+        
         <div class="left">
+            
             <ul class="list-pages">
                 <li class="item"><a href="#" class="link">Empresa</a></li>
                 <li class="item"><a href="#" class="link">Contacto</a></li>
@@ -333,6 +344,6 @@
 
 
     <script src="https://kit.fontawesome.com/7a9e4a4ed4.js" crossorigin="anonymous"></script>
-    <script src="./js/scripts.js"></script>
+    <script src="./js/script.js"></script>
 </body>
 </html>

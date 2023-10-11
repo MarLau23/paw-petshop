@@ -101,6 +101,7 @@ body{
 
 .navbar .menu li {
     list-style: none;
+    position: relative;
 }
 
 .navbar .menu a {
@@ -110,11 +111,12 @@ body{
 }
 
 .navbar .menu a:hover {
+    transform: scale(1.1);
     color: var(--primary);
 }
 
 .navbar .menu-bar {
-    display: none;    /* desaparezco el menu hamburguesa */
+    display: none;    
 }
 
 .navbar .heart {
@@ -147,6 +149,40 @@ body{
     color: var(--primary);
 }
 
+/* SUBMENU*/
+.navbar .submenu{
+    width: 260PX;
+    display: flex;
+    flex-direction: column;
+    background: #f3f1ef;
+    position: absolute;
+    top: 30px;
+    left: -5px;
+    padding: 14px 0px;
+    visibility: hidden;
+    opacity: 0;
+    box-shadow:  0px 0px 10px 0px rgba(0,0,0,0.5);
+    z-index: 10;
+    transition: all 300ms ease ;
+
+}
+.navbar  li:hover .submenu{
+    visibility: visible;
+    opacity: 1;
+    top: 40px; 
+}
+.navbar .submenu:before  {
+    content: '';
+    width: 0;
+    height: 0;
+    border-left: 12px solid transparent;
+    border-right:  12px solid transparent;
+    border-bottom: 12px solid #f3f1ef;
+    position: absolute;
+    top: -12px;
+    left: 20px;
+    
+}
 /* Section hero */
 
 .hero {
@@ -1250,4 +1286,70 @@ textarea {
     border-radius: 5px;
     resize: vertical; /* Permite que el usuario pueda redimensionar verticalmente */
     min-height: 150px; /* Establece una altura mínima para evitar un rectángulo gigante */
+}
+
+
+.catalogo {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+}
+
+.producto {
+    width: 300px;
+    border: 1px solid #ccc;
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.2s ease-in-out;
+}
+
+.producto:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.producto img {
+    max-width: 100%;
+}
+
+.producto h2 {
+    margin: 10px 0;
+    font-size: 1.5rem;
+}
+
+.producto p {
+    font-size: 1rem;
+    color: #777;
+}
+
+/* Agrega una clase de animación a las descripciones de los servicios */
+.servicio-descripcion {
+    opacity: 0; /* Inicialmente, oculta las descripciones */
+    transform: translateY(20px); /* Mueve hacia abajo 20px */
+    transition: opacity 0.3s ease, transform 0.3s ease; /* Agrega transiciones suaves */
+}
+
+/* Agrega reglas para mostrar las descripciones cuando se realiza un hover */
+.servicio:hover .servicio-descripcion {
+    opacity: 1;
+    transform: translateY(0);
+}
+.search {
+    margin-bottom: 20px; 
+}
+
+/* Estilo para el input de búsqueda */
+.search input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+/* Estilo para el input de búsqueda en hover o focus */
+.search input[type="text"]:hover,
+.search input[type="text"]:focus {
+    border-color: #007BFF;
 }
