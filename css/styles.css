@@ -1355,7 +1355,7 @@ textarea {
 }
 
 /*FORMULARIO*/
-form {
+.form-container {
     background-color: var(--light);
     padding: 20px;
     border-radius: 10px;
@@ -1364,17 +1364,13 @@ form {
     margin: 0 auto;
 }
 
-form label {
+.form-label {
     font-weight: bold;
     display: block;
     margin-bottom: 5px;
 }
 
-form input[type="text"],
-form input[type="email"],
-form input[type="tel"],
-form select,
-form textarea {
+.form-input {
     width: 100%;
     padding: 10px;
     margin-bottom: 10px;
@@ -1382,57 +1378,51 @@ form textarea {
     border-radius: 5px;
 }
 
-form select {
+.form-select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid var(--tertiary);
+    border-radius: 5px;
     appearance: none;
 }
 
-form input[type="submit"] {
-    background-color: var(--primary);
-    color: var(--light);
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-form input[type="submit"]:hover {
-    background-color: var(--secondary);
-}
-
-textarea {
+.form-textarea {
     width: 100%;
     padding: 10px;
     margin-bottom: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
     resize: vertical; 
-    min-height: 150px; 
+    min-height: 150px;
 }
 
-
-input[type="submit"], button {
-    background-color: #007BFF; 
-    color: #fff; 
-    padding: 10px 20px; 
-    border: none; 
-    border-radius: 5px; 
-    cursor: pointer; 
-    font-size: 16px; 
-    margin-right: 10px; 
+.send-button {
+    background-color: var(--primary);
+    color: var(--light);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-right: 10px;
 }
 
-
-#cancelar-contacto, #cancelar-servicio {
-    background-color: #ccc; 
-    color: #333; 
+.cancel-button {
+    background-color: #ccc;
+    color: #333;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-right: 10px;
 }
 
-
-input[type="submit"]:hover, button:hover {
-    background-color: #0056b3; 
+.cancel-button:hover {
+    background-color: #999;
 }
 
-
-#cancelar-contacto:hover, #cancelar-servicio:hover {
-    background-color: #999; 
+.send-button:hover {
+    background-color: var(--secondary);
 }
