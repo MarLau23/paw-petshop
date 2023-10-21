@@ -103,7 +103,7 @@
     
                 <button type="button" id="cancelar-contacto" class="cancel-button">Cancelar</button>
     
-                <input type="submit" value="Enviar" class="form-submit">
+                <input type="submit" value="Enviar" class="form-submit" id="botonConsulta">
             </form>
             <br>
             <h1>¡CONTRATA NUESTROS SERVICIOS!</h1>
@@ -140,7 +140,7 @@
     
                 <button type="button" id="cancelar-servicio" class="cancel-button">Cancelar</button>
     
-                <input type="submit" value="Enviar" class="form-submit">
+                <input type="submit" value="Enviar" class="form-submit" id="botonServicio">
             </form>
         </center>
     </main>
@@ -189,6 +189,19 @@
     
             return true; 
         }
+        const BOTON_CONSULTA=document.getElementById("botonConsulta");
+
+        BOTON_CONSULTA.addEventListener("click",() => {
+            alert("Hemos recibido tu mensaje")
+        
+         })
+         const BOTON_SERVICIO=document.getElementById("botonServicio");
+
+        BOTON_SERVICIO.addEventListener("click",() => {
+            alert("Recibimos tu solicitud se servicio, Gracias!")
+
+         })
+
     </script>    
 
 </body>
