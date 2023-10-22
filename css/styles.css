@@ -197,7 +197,7 @@ body{
 }
 
 .hero .info-content {
-    grid-column: 6/10;
+    grid-column: 4/10;
     grid-row: 5/7;
     color: var(--light);
 }
@@ -365,7 +365,7 @@ body{
 
 .offer {
     background-image: url('../img/background-counter.jpg');
-    height: 330px;
+    height: 430px;
     color: var(--dark);
     display: grid;
     grid-template-columns: repeat(4, 1fr)
@@ -1335,13 +1335,13 @@ textarea {
     transform: translateY(0);
 }
 .search {
-    margin-bottom: 20px; 
+    margin-bottom: 10px; 
 }
 
 /* Estilo para el input de búsqueda */
 .search input[type="text"] {
     width: 100%;
-    padding: 10px;
+    padding: 5px;
     border: 1px solid #ccc;
     border-radius: 5px;
     outline: none;
