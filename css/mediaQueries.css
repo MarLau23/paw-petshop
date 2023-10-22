@@ -7,7 +7,271 @@
 }
 
 @media only screen and (max-width: 37.5rem) {
+/* 
+    .topbar {
+        display: none;
+    }
 
+    .navbar {
+        position: relative;
+        
+    }
+
+
+    .navbar .shopping, .user, .heart {
+        display: none;
+    }
+
+    .navbar .menu-bar {
+        display: block;
+        grid-column: 11/12;
+        font-size: 2rem;
+        cursor: pointer;
+        font-size: 1.5rem;
+    }
+
+    .navbar .menu {
+        position: absolute;
+        width: 100%;
+        height: 70vh;
+        display: grid;
+        align-items: center;
+        background-color: var(--primary);
+        margin-top: 30rem;
+        transform: translateX(180%);
+        transition: all 1.5s;
+    }
+
+    .navbar .menu-toggle {
+        transform: translateX(70%);
+    } */
+
+
+    /* Section Main */
+
+    .hero .info-content {
+        grid-column: 2/10;
+        grid-row: 5/7;
+    }
+
+    .hero h3 {
+        font-size: 1.2rem;
+    }
+    .hero h1 {
+        font-size: 3rem;
+    }
+
+    .hero p {
+        font-size: .875rem;
+    }
+
+    .hero .btn {
+        font-size: .9rem;
+    }
+
+    /* Section Footer */
+
+    .footer .follow-me {
+        display: none;
+    }
+
+    .footer .social-network {
+        text-align: center;
+    }
+}
+
+@media screen and (min-width: 950px) and (max-width: 1200px){
+    .img-cat{
+        visibility: hidden;
+    }
+    .services{
+        grid-template-columns: 10% 30% 10% 10% 10% 30%;
+        grid-template-rows: repeat(3, auto);
+    }
+    .services .heading{
+        grid-area: 1/1/2/7;
+    }
+    .services .number_1{
+        grid-area: 2/1/3/2;
+    }
+    .services .number_2{
+        grid-area: 2/5/3/6;
+    }
+    .services .number_3{
+        grid-area: 3/1/4/2;
+    }
+    .services .number_4{
+        grid-area: 3/5/4/6;
+    }
+    .services .service_1{
+        grid-area: 2/2/3/3;
+    }
+    .services .service_2{
+        grid-area: 2/6/3/7;
+    }
+    .services .service_3{
+        grid-area: 3/2/4/3;
+    }
+    .services .service_4{
+        grid-area: 3/6/4/7;
+    }
+    .services .img_1{
+        grid-area: 2/3/4/5;
+    }
+    .services .img_1 img{
+        width: 90%;
+        padding-left: 15%;
+    }
+    
+    .offer .heading{
+        grid-column: 1/4;
+    }
+    .offer .img-food img{
+        grid-column: 4/5;
+    }
+    .about .mission{
+        padding: .5rem;
+        margin: 1%;
+    }
+
+    .img-dog-down{
+        visibility: hidden;
+    }
+    .products{
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+}
+.products .heading{
+    grid-area: 1/1/2/3;
+}
+.products .one-box {
+    grid-area: 2/1/3/2;
+}
+
+.products .two-box {
+    grid-area: 2/2/3/3;
+}
+
+.products .three-box {
+    grid-area: 3/1/4/2;
+}
+
+.products .four-box {
+    grid-area: 3/2/4/3;
+}
+.cat-standing{
+    visibility: hidden;
+}
+.products .owl-prev{
+    grid-area: 4/1/5/2;
+}
+.products .owl-next{
+    grid-area: 4/2/5/3;
+}
+}
+@media screen and (min-width: 850px) and (max-width: 950px){
+    .hero .info-content {
+        grid-column: 4/10;
+    }
+    .img-cat{
+        visibility: hidden;
+    }
+    .services{
+        grid-template-columns: 10% 30% 10% 10% 10% 30%;
+        grid-template-rows: repeat(3, auto);
+    }
+    .services .heading{
+        grid-area: 1/1/2/7;
+        padding: 1rem;
+    }
+    .services .number_1{
+        grid-area: 2/1/3/2;
+    }
+    .services .number_2{
+        grid-area: 2/5/3/6;
+    }
+    .services .number_3{
+        grid-area: 3/1/4/2;
+    }
+    .services .number_4{
+        grid-area: 3/5/4/6;
+    }
+    .services .service_1{
+        grid-area: 2/2/3/3;
+    }
+    .services .service_2{
+        grid-area: 2/6/3/7;
+        padding: 1%;
+    }
+    .services .service_3{
+        grid-area: 3/2/4/3;
+    }
+    .services .service_4{
+        grid-area: 3/6/4/7;
+    }
+    .services .img_1{
+        grid-area: 2/3/4/5;
+    }
+    .services .img_1 img{
+        width: 90%;
+        padding-left: 15%;
+    }
+    .offer .heading{
+        grid-column: 1/4;
+    }
+    .offer .img-food img{
+        grid-column: 4/5;
+    }
+    .img-dog-down{
+        visibility: hidden;
+    }
+    .about .heading{
+        grid-column: 1/4;
+    }
+    .about .heading p{
+        padding: 1rem;
+    }
+    .about .img-dog-paw {
+        grid-column: 1/2;
+    }
+    .about .mission{
+        grid-column: 2/4;
+        margin: 1rem
+    }
+    .products{
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(4, 1fr);
+    }
+    .products .heading{
+        grid-area: 1/1/2/3;
+    }
+.products .one-box {
+    grid-area: 2/1/3/2;
+}
+
+.products .two-box {
+    grid-area: 2/2/3/3;
+}
+
+.products .three-box {
+    grid-area: 3/1/4/2;
+}
+
+.products .four-box {
+    grid-area: 3/2/4/3;
+}
+.cat-standing{
+    visibility: hidden;
+}
+.products .owl-prev{
+    grid-area: 4/1/5/2;
+}
+.products .owl-next{
+    grid-area: 4/2/5/3;
+}
+}
+@media screen and (min-width: 630px) and (max-width: 850px){
+    
     .topbar {
         display: none;
     }
@@ -45,38 +309,481 @@
     .navbar .menu-toggle {
         transform: translateX(70%);
     }
-
-
-    /* Section Main */
-
+    .hero{
+        grid-template-rows: repeat(4, 1fr);
+    }
     .hero .info-content {
-        grid-column: 2/10;
-        grid-row: 5/7;
+        grid-column: 3/10;
+        grid-row: 3/4;
     }
-
-    .hero h3 {
-        font-size: 1.2rem;
+    .img-cat{
+        visibility: hidden;
     }
-    .hero h1 {
-        font-size: 3rem;
+    .services{
+        grid-template-columns: 10% 30% 10% 10% 10% 30%;
+        grid-template-rows: repeat(3, auto);
     }
-
-    .hero p {
-        font-size: .875rem;
+    .services .heading{
+        grid-area: 1/1/2/7;
+        padding: 1rem;
     }
-
-    .hero .btn {
-        font-size: .9rem;
+    .services .number_1{
+        grid-area: 2/1/3/2;
+        margin-left: 20%;
     }
+    .services .number_1 img{
+        width: 40%;
+    }
+    .services .number_2{
+        grid-area: 2/4/3/5;
+        margin-left: 20%;
+    }
+    .services .number_2 img{
+        width: 40%;
+    }
+    .services .number_3{
+        grid-area: 3/1/4/2;
+        margin-left: 20%;
+    }
+    .services .number_3 img{
+        width: 40%;
+    }
+    .services .number_4{
+        grid-area: 3/4/4/5;
+        margin-left: 20%;
+    }
+    .services .number_4 img{
+        width: 40%;
+    }
+    .services .service_1{
+        grid-area: 2/2/3/4;
+    }
+    .services .service_2{
+        grid-area: 2/5/3/7;
+        padding: 1%;
+    }
+    .services .service_3{
+        grid-area: 3/2/4/4;
+    }
+    .services .service_4{
+        grid-area: 3/5/4/7;
+    }
+    .services .img_1{
+        visibility: hidden;
+    }
+    .services .img_1 img{
+        width: 90%;
+        padding-left: 15%;
+    }
+    .offer .heading{
+        grid-column: 1/4;
+    }
+    .offer .img-food {
+        visibility: hidden;
+    }
+    .img-dog-down{
+        visibility: hidden;
+    }
+    
+    .about .heading{
+        grid-column: 1/4;
+    }
+    .about .heading p{
+        padding: .2rem;
+    }
+    .about .img-dog-paw {
+        grid-column: 1/2;
+    }
+    .about .mission{
+        grid-column: 2/4;
+        margin: 1rem
+    }
+    .about{
+        grid-template-columns: 50% 50%;
+        grid-template-rows: repeat(5, auto);
+    }
+    .products{
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(4, 1fr);
+    }
+    .products .heading{
+        grid-area: 1/1/2/3;
+        padding: 2rem;
+    }
+.products .one-box {
+    grid-area: 2/1/3/2;
+}
 
-    /* Section Footer */
+.products .two-box {
+    grid-area: 2/2/3/3;
+}
 
-    .footer .follow-me {
+.products .three-box {
+    grid-area: 3/1/4/2;
+}
+
+.products .four-box {
+    grid-area: 3/2/4/3;
+}
+.cat-standing{
+    visibility: hidden;
+}
+.products .owl-prev{
+    grid-area: 4/1/5/2;
+}
+.products .owl-next{
+    grid-area: 4/2/5/3;
+}
+.dog-snout img{ 
+    width: 100%;
+}
+}
+@media screen and (min-width: 540px) and (max-width: 630px){
+        
+    .topbar {
         display: none;
     }
 
-    .footer .social-network {
-        text-align: center;
+    .navbar {
+        position: relative;
+        
     }
+
+
+    .navbar .shopping, .user, .heart {
+        display: none;
+    }
+
+    .navbar .menu-bar {
+        display: block;
+        grid-column: 11/12;
+        font-size: 2rem;
+        cursor: pointer;
+        font-size: 1.5rem;
+    }
+
+    .navbar .menu {
+        position: absolute;
+        width: 100%;
+        height: 70vh;
+        display: grid;
+        align-items: center;
+        background-color: var(--primary);
+        margin-top: 30rem;
+        transform: translateX(180%);
+        transition: all 1.5s;
+    }
+
+    .navbar .menu-toggle {
+        transform: translateX(70%);
+    }
+    
+    .hero .info-content {
+        grid-column: 2/10;
+    }
+    .img-cat{
+        visibility: hidden;
+    }
+    .services{
+        grid-template-columns: 20% 80%;
+        grid-template-rows: repeat(5, auto);
+    }
+    .services .heading{
+        grid-area: 1/1/2/3;
+        padding: 1rem;
+    }
+    .services .number_1{
+        grid-area: 2/1/3/2;
+        margin-left: 20%;
+    }
+    .services .number_1 img{
+        width: 40%;
+    }
+    .services .number_2{
+        grid-area: 3/1/4/2;
+        margin-left: 20%;
+    }
+    .services .number_2 img{
+        width: 40%;
+    }
+    .services .number_3{
+        grid-area: 4/1/5/2;
+        margin-left: 20%;
+    }
+    .services .number_3 img{
+        width: 40%;
+    }
+    .services .number_4{
+        grid-area: 5/1/6/2;
+        margin-left: 20%;
+    }
+    .services .number_4 img{
+        width: 40%;
+    }
+    .services .service_1{
+        grid-area: 2/2/3/3;
+    }
+    .services .service_2{
+        grid-area: 3/2/4/3;
+        padding: 1%;
+    }
+    .services .service_3{
+        grid-area: 4/2/5/3;
+    }
+    .services .service_4{
+        grid-area: 5/2/6/3;
+    }
+    .services .img_1{
+        visibility: hidden;
+    }
+    .services .img_1 img{
+        width: 90%;
+        padding-left: 15%;
+    }
+    .offer .heading{
+        grid-column: 1/4;
+    }
+    .offer .img-food {
+        visibility: hidden;
+    }
+    .img-dog-down{
+        visibility: hidden;
+    }
+    .about .heading{
+        grid-column: 1/2;
+        grid-row: 1/2;
+    }
+    .about .heading p{
+        padding: .2rem;
+    }
+    .about .img-dog-paw {
+        visibility: hidden;
+    }
+    .about .img-cat-paw {
+        visibility: hidden;
+    }
+    .about .mission{
+        grid-column: 1/2;
+        grid-row: 2/3;
+        width: 90%;
+    }
+    .about .vision{
+        grid-column: 1/2;
+        grid-row: 3/4;
+        width: 90%;
+    }
+    .about{
+        grid-template-columns: 100%;
+        grid-template-rows: repeat(3, auto);
+    }
+    .products{
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(4, 1fr);
+    }
+    .products .heading{
+        grid-area: 1/1/2/3;
+        padding: 2rem;
+    }
+.products .one-box {
+    grid-area: 2/1/3/2;
 }
 
+.products .two-box {
+    grid-area: 2/2/3/3;
+}
+
+.products .three-box {
+    grid-area: 3/1/4/2;
+}
+
+.products .four-box {
+    grid-area: 3/2/4/3;
+}
+.cat-standing{
+    visibility: hidden;
+}
+.products .owl-prev{
+    grid-area: 4/1/5/2;
+}
+.products .owl-next{
+    grid-area: 4/2/5/3;
+}
+.dog-snout img{ 
+    width: 100%;
+}
+}
+@media screen and (min-width: 350px) and (max-width: 540px){
+        
+    .topbar {
+        display: none;
+    }
+
+    .navbar {
+        position: relative;
+        
+    }
+
+
+    .navbar .shopping, .user, .heart {
+        display: none;
+    }
+
+    .navbar .menu-bar {
+        display: block;
+        grid-column: 11/12;
+        font-size: 2rem;
+        cursor: pointer;
+        font-size: 1.5rem;
+    }
+
+    .navbar .menu {
+        position: absolute;
+        width: 100%;
+        height: 70vh;
+        display: grid;
+        align-items: center;
+        background-color: var(--primary);
+        margin-top: 30rem;
+        transform: translateX(180%);
+        transition: all 1.5s;
+    }
+
+    .navbar .menu-toggle {
+        transform: translateX(70%);
+    }
+    
+    .hero .info-content {
+        grid-column: 2/10;
+        grid-row: 4/7;
+    }
+    .img-cat{
+        visibility: hidden;
+    }
+    .services{
+        grid-template-columns: 20% 80%;
+        grid-template-rows: repeat(5, auto);
+    }
+    .services .heading{
+        grid-area: 1/1/2/3;
+        padding: 1rem;
+    }
+    .services .number_1{
+        grid-area: 2/1/3/2;
+        margin-left: 20%;
+    }
+    .services .number_1 img{
+        width: 40%;
+    }
+    .services .number_2{
+        grid-area: 3/1/4/2;
+        margin-left: 20%;
+    }
+    .services .number_2 img{
+        width: 40%;
+    }
+    .services .number_3{
+        grid-area: 4/1/5/2;
+        margin-left: 20%;
+    }
+    .services .number_3 img{
+        width: 40%;
+    }
+    .services .number_4{
+        grid-area: 5/1/6/2;
+        margin-left: 20%;
+    }
+    .services .number_4 img{
+        width: 40%;
+    }
+    .services .service_1{
+        grid-area: 2/2/3/3;
+    }
+    .services .service_2{
+        grid-area: 3/2/4/3;
+        padding: 1%;
+    }
+    .services .service_3{
+        grid-area: 4/2/5/3;
+    }
+    .services .service_4{
+        grid-area: 5/2/6/3;
+    }
+    .services .img_1{
+        visibility: hidden;
+    }
+    .services .img_1 img{
+        width: 90%;
+        padding-left: 15%;
+    }
+    .offer .heading{
+        grid-column: 1/4;
+    }
+    .offer .img-food {
+        visibility: hidden;
+    }
+    .img-dog-down{
+        visibility: hidden;
+    }
+    .about .heading{
+        grid-column: 1/2;
+        grid-row: 1/2;
+    }
+    .about .heading p{
+        padding: .2rem;
+    }
+    .about .img-dog-paw {
+        visibility: hidden;
+    }
+    .about .img-cat-paw {
+        visibility: hidden;
+    }
+    .about .mission{
+        grid-column: 1/2;
+        grid-row: 2/3;
+        width: 90%;
+    }
+    .about .vision{
+        grid-column: 1/2;
+        grid-row: 3/4;
+        width: 90%;
+    }
+    .about{
+        grid-template-columns: 100%;
+        grid-template-rows: repeat(3, auto);
+    }
+    .products{
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(6, 1fr);
+    }
+    .products .heading{
+        grid-area: 1/1/2/3;
+        padding: 2rem;
+    }
+.products .one-box {
+    grid-area: 2/1/3/3;
+}
+
+.products .two-box {
+    grid-area: 3/1/4/3;
+}
+
+.products .three-box {
+    grid-area: 4/1/5/3;
+}
+
+.products .four-box {
+    grid-area: 5/1/6/3;
+}
+.cat-standing{
+    visibility: hidden;
+}
+.products .owl-prev{
+    grid-area: 6/1/7/2;
+}
+.products .owl-next{
+    grid-area: 6/2/7/3;
+}
+.dog-snout img{ 
+    width: 100%;
+}
+}
