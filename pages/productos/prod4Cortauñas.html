@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,14 +7,14 @@
     <link rel="shortcut icon" href="../img/favicon.png" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../css/styles.css">
-    <link rel="stylesheet" href="../css/mediaQueries.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <title>Paw | Productos</title>
+    <link rel="stylesheet" href="../../css/styles.css">
+    <link rel="stylesheet" href="../../css/mediaQueries.css">
+    <title>Paw | ANIMAL PET - Cortauñas</title>
 </head>
 <body>
     <header>
-        <section class="topbar">
+        <!-- Topbar Start -->
+        <div class="topbar">
             <nav class="contact-info">
                 <ul class="grid-container">
                     <li class="contact-item grid-item">
@@ -51,18 +51,20 @@
                     </li>
                 </ul>
             </nav>
-        </section>
+        </div>
+        <!-- Topbar End -->
 
-
-
+        <!-- Navbar Start -->
         <nav class="navbar">
-            <img src="../img/isologo.png" class="logo" alt="logo petshop paw">
+
+            <img src="../../img/isologo.png" class="logo" alt="logo petshop paw">
+
             <ul class="menu" id="menu">
-                <li><a href="../index.html">Home</a></li>
-                <li><a href="./services.html">Servicios</a></li>
-                <!-- <li><a href="./products.html">Productos</a></li> -->
-                <li><a href="./about.html">Nosotros</a></li>
-                <li><a href="./contact.html">Contacto</a></li>
+                <li><a href="../../index.html">Home</a></li>
+                <li><a href="../services.html">Servicios</a></li>
+                <li><a href="../products.html">Productos</a></li>
+                <li><a href="../about.html">Nosotros</a></li>
+                <li><a href="../contact.html">Contacto</a></li>
             </ul>
             <div class="menu-bar" id="menu-bar">
                 <i class="fa-solid fa-bars"></i>
@@ -77,75 +79,42 @@
                 <i class="fa-solid fa-cart-shopping"></i>
             </div>
         </nav>
-    </header>
-    <h1 id="tituloProd">PRODUCTOS</h1>
-    <main>
-        <div class="catalogo">
-            <div class="producto">
-                <img src="../img/prod1Alimento.png" alt="Producto 1">
-                <div class="descripcionProd">
-                <h2>Alimento para perros - Raza pequeña</h2>
-                <p>ULTIMA NATURE. Alimento para perros con cordero - Raza pequeña</p>
-                <div class="icon">
-                    <a class="btn" href=""><i class="far fa-heart"></i></a>
-                    <a class="btn" href=""><i class="fas fa-cart-shopping"></i></a>
-                    <a class="btn" href="../pages/productos/prod1Alimento.html"><i class="fas fa-eye"></i></a>
-                </div>
+    <main class="displayProducto">
+        <img src="../../img/prod3Cortauñas.png" alt="cortauñas para mascota">
+        <div>
+            <h1>ANIMAL PET - Cortauñas para mascota</h1>
+            <p>ANIMAL PET | Código de producto: 741237</p>
+            <p><u>Descripción:</u> La Tijera Animal Pet Cortauñas, es un elemento esencial para el cuidado de tu mascota, ya que el corte de uñas es una tarea de higiene más. Es importante para la salud y el bienestar físico, revisar y mantener las uñas por lo menos una vez por semana.</p>
+            <p><b>Seleccione presentación:</b></p>
+            <div class="presentacion">
+                <button>Talle único</button>
+            </div>
+            <h2>$2830</h2>
+            <div>
+                <h3>Cantidad:</h3>
+                <div class="elegirCant">
+                    <input type="button" value="-" id="button-"></input>
+                    <h3 id="cantidad">0</h3>
+                    <input type="button" value="+" id="button+"></input>
                 </div>
             </div>
-            <div class="producto">
-                <img src="../img/prod2Cepillo.png" alt="Producto 2">
-                <div class="descripcionProd">
-                <h2>Cepillo doble para mascotas</h2>
-                <p>TIESOME. Cepillo doble para mascotas de pelo largo y corto.</p>
-                <div class="icon">
-                    <a class="btn" href=""><i class="far fa-heart"></i></a>
-                    <a class="btn" href=""><i class="fas fa-cart-shopping"></i></a>
-                    <a class="btn" href="../pages/productos/prod2Cepillo.html"><i class="fas fa-eye"></i></a>
-                </div>
-                </div>
-            </div>
-            <div class="producto">
-                <img src="../img/prod3Shampoo.png" alt="Producto 3">
-                <div class="descripcionProd">
-                <h2>Shampoo antipulgas - 250ml</h2>
-                <p>MENFORSAN. Shampoo repelente de pulgas y garrapatas para perros. 250ml - Pack x2.</p>
-                <div class="icon">
-                    <a class="btn" href=""><i class="far fa-heart"></i></a>
-                    <a class="btn" href=""><i class="fas fa-cart-shopping"></i></a>
-                    <a class="btn" href="../pages/productos/prod3Shampoo.html"><i class="fas fa-eye"></i></a>
-                </div>
-                </div>
-            </div>
-            <div class="producto">
-                <img src="../img/prod3Cortauñas.png" alt="Producto 3">
-                <div class="descripcionProd"> 
-                <h2>Cortauñas para mascotas</h2>
-                <p>ANIMAL PET. Cortauñas para perros y gatos con protector de seguridad.</p>
-                <div class="icon">
-                    <a class="btn" href=""><i class="far fa-heart"></i></a>
-                    <a class="btn" href=""><i class="fas fa-cart-shopping"></i></a>
-                    <a class="btn" href="../pages/productos/prod4Cortauñas.html"><i class="fas fa-eye"></i></a>
-                </div>
-                </div>
-            </div>
+            <button id="agregarProducto">Agregar a carrito</button>
         </div>
     </main>
-
     <footer class="footer">
         <div class="logo">
             <!-- <picture class=""> -->
-                <img alt="full logo" src="../img/isologo.png">
+                <img alt="full logo" src="../../img/isologo.png">
             <!-- </picture> -->
         </div>
 
         <div class="left">
             <ul class="list-pages">
-                <li class="item"><a href="../pages/about.html" class="link">Empresa</a></li>
-                <li class="item"><a href="../pages/contact.html" class="link">Contacto</a></li>
+                <li class="item"><a href="../about.html" class="link">Empresa</a></li>
+                <li class="item"><a href="../contact.html" class="link">Contacto</a></li>
                 <li class=item"><a href="#" class="link">Blog</a></li>
-                <li class="item"><a href="../pages/terminosyCondiciones.html" class="link">Términos y Condiciones</a></li>
-                <li class="item"><a href="../pages/botonDeArrepentimiento.html" class="link">Botón de Arrepentimiento</a></li>
+                <li class="item"><a href="../terminosyCondiciones.html" class="link">Términos y Condiciones</a></li>
+                <li class="item"><a href="../botonDeArrepentimiento.html" class="link">Botón de Arrepentimiento</a></li>
             </ul>
         </div>
         
@@ -171,12 +140,12 @@
         </div>
 
         <div class="dog-snout">
-            <img src="../img/dog-snout.png">
+            <img src="../../img/dog-snout.png">
         </div>
     </footer>
 
 
     <script src="https://kit.fontawesome.com/7a9e4a4ed4.js" crossorigin="anonymous"></script>
-    <script src="../js/script.js"></script>
+    <script src="../../js/script.js"></script>
 </body>
 </html>

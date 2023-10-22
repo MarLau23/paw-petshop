@@ -1093,8 +1093,6 @@ body{
 }
 #botonDeArrepentimiento form{
     width: 60%;
-    position: relative;
-    left: 20%;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -1288,16 +1286,22 @@ textarea {
     min-height: 150px; /* Establece una altura mínima para evitar un rectángulo gigante */
 }
 
-
+/*catálogo*/
 .catalogo {
     display: flex;
     justify-content: space-around;
     padding: 20px;
 }
-
+#tituloProd{
+    text-align: center;
+    margin: 3rem 2rem 2rem 2rem;
+    color: var(--primary);
+}
 .producto {
     width: 300px;
+    height: auto;
     border: 1px solid #ccc;
+    border-radius: 30px;
     padding: 20px;
     text-align: center;
     transition: transform 0.2s ease-in-out;
@@ -1321,7 +1325,81 @@ textarea {
     font-size: 1rem;
     color: #777;
 }
-
+.producto .btn{
+    color: var(--dark);
+}
+.producto .btn :hover{
+    transform: scale(1.03);
+    transition: all 400ms ease-in-out 0s;
+    color: var(--primary);
+}
+.descripcionProd{
+    height: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+/*productos*/
+.displayProducto{
+    width: 70%;
+    position: relative;
+    left: 15%;
+    margin-top: 5rem;
+    display: flex;
+}
+.displayProducto img{
+    width: 40%;
+}
+.displayProducto p{
+    margin-top: 1rem;
+}
+.presentacion{
+    display: flex;
+}
+.presentacion button{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    padding: 2%;
+    margin: 1%;
+    border: 1px solid var(--tertiary);
+    border-radius: 3px;
+    background-color: var(--tertiary);
+}
+.displayProducto h2{
+    margin-top: 1rem;
+    font-size: 2.5rem;
+}
+.elegirCant{
+    width: 20%;
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid var(--primary);
+}
+.elegirCant input{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--light);
+    background-color: var(--primary);
+    border: 1px solid var(--primary);
+    border-radius: 5px;
+    padding: .5rem;
+}
+.elegirCant h3{
+    font-size: 1.5rem;
+    margin-top: 10%;
+}
+#agregarProducto{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: var(--light);
+    background-color: var(--primary);
+    border: 1px solid var(--primary);
+    border-radius: 5px;
+    padding: 10px;
+    margin-top: 3rem;
+}
 /* Agrega una clase de animación a las descripciones de los servicios */
 .servicio-descripcion {
     opacity: 0; /* Inicialmente, oculta las descripciones */
