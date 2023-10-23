@@ -384,7 +384,9 @@
     .img-dog-down{
         visibility: hidden;
     }
-    
+    .about .img-cat-paw {
+        visibility: hidden;
+    }
     .about .heading{
         grid-column: 1/4;
     }
@@ -393,6 +395,9 @@
     }
     .about .img-dog-paw {
         grid-column: 1/2;
+    }
+    .about .img-dog-paw img{
+        width: 100%;
     }
     .about .mission{
         grid-column: 2/4;
