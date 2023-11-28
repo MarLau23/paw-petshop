@@ -1,3 +1,4 @@
+
 import mysql.connector
 
 
@@ -32,7 +33,7 @@ class Catalogo:
         sql = f"INSERT INTO productos \
             (codigo, nombre, descripcion,precio, tamanio, stock,  imagen_url, marca) \
             VALUES \
-            ({codigo}, '{nomb}', '{desc}', {precio}, '{tam}', {stock},  '{img}', {marca})"
+            ({codigo}, '{nomb}', '{desc}', {precio}, '{tam}', {stock},  '{img}', '{marca}')"
         self.cursor.execute(sql)
         self.conn.commit()
         return True      
@@ -130,3 +131,6 @@ class Catalogo:
 
 
 catalogo = Catalogo(host='localhost', user='root', password='', database='productospetshop')
+
+catalogo.agregar_producto(2, 'alimento', 'alimento perros', 12222, '123gr', 12, 'alimento.png', 'pedigree')
+catalogo.listar_productos()
