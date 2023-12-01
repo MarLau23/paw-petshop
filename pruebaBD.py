@@ -180,7 +180,6 @@ def agregar_producto():
     precio = request.form['precio']
     proveedor = request.form['proveedor']  
     imagen = request.files['imagen']
-
     # Me aseguro que el producto exista
     producto = catalogo.consultar_producto(codigo)
     if not producto: # Si no existe el producto...
