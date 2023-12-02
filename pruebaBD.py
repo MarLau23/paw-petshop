@@ -35,24 +35,25 @@ class Catalogo:
             tamanio VARCHAR(10),
             stock INT NOT NULL,
             imagen_url VARCHAR(255),
-            marca VARCHAR(255))''')
+            proveedor VARCHAR(255))''')
         self.conn.commit()
 
     #agregar prod
-    def agregar_producto(self, codigo, nomb, desc, precio, tam, stock, img, marca):
+    def agregar_producto(self, codigo, nombre, descripcion, precio, tamanio, stock, imagen, proveedor):
         self.cursor.execute(f"SELECT * FROM productos WHERE codigo ={codigo}")
         producto_existe = self.cursor.fetchone()
         if producto_existe:
             return False
         
         sql = f"INSERT INTO productos \
-            (codigo, nombre, descripcion,precio, tamanio, stock,  imagen_url, marca) \
-            VALUES \
-            ({codigo}, '{nomb}', '{desc}', {precio}, '{tam}', {stock},  '{img}', {marca})"
-        valores = (codigo, nomb, desc,precio, tam, stock,  img, marca)
+            (codigo, nombre, descripcion, precio, tamanio, stock,  imagen_url, proveedor)  VALUES (%s, %s, %s, %s, %s, %s, %s, %s)" 
+            #({codigo}, '{nombre}', '{descripcion}', {precio}, '{tamanio}', {stock},  '{imagen}', '{proveedor}')"
+        valores = (codigo, nombre, descripcion ,precio, tamanio, stock,  imagen , proveedor)
         self.cursor.execute(sql, valores)
         self.conn.commit()
+        print("Producto agregado correctamente.")
         return True      
+
 
         # #crear diccionario si no existe algun prod con ese codigo
         # producto = {
@@ -76,7 +77,7 @@ class Catalogo:
 
     #modificar prod por codigo
 
-    def modificar_producto(self, codigo, nuevo_nombre, nueva_descripcion, nuevo_precio, nuevo_tamanio, nuevo_stock, nueva_imagen, nueva_marca):
+    def modificar_producto(self, codigo, nuevo_nombre, nueva_descripcion, nuevo_precio, nuevo_tamanio, nuevo_stock, nueva_imagen, nuevo_proveedor):
         # for producto in self.productos:
         #     if producto['codigo'] == codigo:
         #         producto['nombre'] = nuevo_nombre
@@ -85,7 +86,7 @@ class Catalogo:
         #         producto['tamanio'] = nuevo_tamanio
         #         producto['stock'] = nuevo_stock
         #         producto['imagen'] = nueva_imagen
-        #         producto['marca'] = nueva_marca
+        #         producto['proveedor'] = nuevo_proveedor
         #         return True
         # return False
         sql = f"UPDATE productos SET \
@@ -95,7 +96,7 @@ class Catalogo:
             tamanio = '{nuevo_tamanio}', \
             stock = '{nuevo_stock}', \
             imagen_url = '{nueva_imagen}', \
-            marca ='{nueva_marca}', \
+            proveedor ='{nuevo_proveedor}', \
             WHERE codigo = {codigo}"
         self.cursor.execute(sql)
         self.conn.commit()
@@ -122,10 +123,10 @@ class Catalogo:
             print(f"Nombre: {producto['nombre']}")
             print(f"Descripción: {producto['descripcion']}")
             print(f"Precio: {producto['precio']}")
-            print(f"Tamaño: {producto['tamanio']}")
+            print(f"Tamanio: {producto['tamanio']}")
             print(f"Stock: {producto['stock']}")
             print(f"Imagen: {producto['imagen']}")
-            print(f"Marca: {producto['marca']}")
+            print(f"Proveedor: {producto['proveedor']}")
             print("-" * 20)
 #--------------------------------------------------------------------------------------------
     #mostrar prod
@@ -137,16 +138,18 @@ class Catalogo:
             print(f"Nombre: {producto['nombre']}")
             print(f"Descripción: {producto['descripcion']}")
             print(f"Precio: {producto['precio']}")
-            print(f"Tamaño: {producto['tamanio']}")
+            print(f"Tamanio: {producto['tamanio']}")
             print(f"Stock: {producto['stock']}")
             print(f"Imagen: {producto['imagen']}")
-            print(f"Marca: {producto['marca']}")
+            print(f"Proveedor: {producto['proveedor']}")
             print("-" * 20)
         else:
             print("Producto no encontrado.")
 
 
 catalogo = Catalogo(host='localhost', user='root', password='', database='productospetshop')
+#catalogo.agregar_producto(1, 'Pienso para perros', 'Pienso para perros adultos', 1000.36, '1kg', 10, 'pienso.png', 'Purina')
+# catalogo.agregar_producto(2, 'Pienso para gatos', 'Pienso para gatos adultos', 1000.00, '1kg', 10, 'pienso.', 'Purina')
 
 #Carpeta para guardar las imagenes.
 RUTA_DESTINO = './imagen_inventario/'
@@ -175,11 +178,12 @@ def agregar_producto():
     codigo = request.form['codigo']
     nombre = request.form['nombre']
     descripcion = request.form['descripcion']
-    cantidad = request.form['cantidad']
+    stock = request.form['stock']
+    tamanio = request.form['tamanio']
     precio = request.form['precio']
-    proveedor = request.form['proveedor']  
     imagen = request.files['imagen']
-
+    proveedor = request.form['proveedor']  
+    
     # Me aseguro que el producto exista
     producto = catalogo.consultar_producto(codigo)
     if not producto: # Si no existe el producto...
@@ -188,7 +192,7 @@ def agregar_producto():
         nombre_base, extension = os.path.splitext(nombre_imagen)
         nombre_imagen = f"{nombre_base}_{int(time.time())}{extension}"
 
-    if catalogo.agregar_producto(codigo, descripcion, cantidad, precio, nombre_imagen, proveedor):
+    if catalogo.agregar_producto(codigo, nombre, descripcion, precio, tamanio, stock, nombre_imagen, proveedor):
         imagen.save(os.path.join(RUTA_DESTINO, nombre_imagen))
         return jsonify({"mensaje": "Producto agregado"}), 201
     else:
@@ -198,9 +202,11 @@ def agregar_producto():
 @app.route("/productos/<int:codigo>", methods=["PUT"])
 def modificar_producto(codigo):
     #Recojo los datos del form
+    nuevo_nombre= request.form.get("nombre")
     nueva_descripcion = request.form.get("descripcion")
-    nueva_cantidad = request.form.get("cantidad")
     nuevo_precio = request.form.get("precio")
+    nuevo_tamanio = request.form['tamanio']
+    nuevo_stock = request.form.get("stock")
     nuevo_proveedor = request.form.get("proveedor")
     imagen = request.files['imagen']
 
@@ -221,7 +227,7 @@ def modificar_producto(codigo):
         if os.path.exists(ruta_imagen):
             os.remove(ruta_imagen)
     
-    if catalogo.modificar_producto(codigo, nueva_descripcion, nueva_cantidad, nuevo_precio, nombre_imagen, nuevo_proveedor):
+    if catalogo.modificar_producto(codigo, nuevo_nombre, nueva_descripcion, nuevo_precio, nuevo_tamanio, nuevo_stock, nombre_imagen, nuevo_proveedor):
         return jsonify({"mensaje": "Producto modificado"}), 200
     else:
         return jsonify({"mensaje": "Producto no encontrado"}), 403
