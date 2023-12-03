@@ -57,11 +57,11 @@
         <!-- Navbar Start -->
         <nav class="navbar">
             <img src="./img/isologo.png" class="logo" alt="logo petshop paw">
-            <!-- <input type="checkbox" id="menu-check">
+            <input type="checkbox" id="menu-check">
             <label id="menu" for="menu-check">
                 <span id="menu-abrir">&#9776;</span>
                 <span id="menu-cerrar">X</span>
-            </label> -->
+            </label> 
             <ul class="menu" id="menu">
                 <!-- <li><a href="#">Home</a></li> -->
                 <li><a href="./pages/services.html">Servicios</a>
@@ -96,25 +96,25 @@
    
     
     <!--enctype="multipart/form-data es necesario para enviar archivos al back.-->
-    <form action="/productos" method="POST">
-    <label for="codigo">Código:</label>
-    <input type="text" id="codigo" name="codigo" required><br>
-    <label for="nombre">Nombre:</label>
-    <input type="text" id="codigo" name="codigo" required><br>
-    <label for="descripcion">Descripción:</label>
-    <input type="text" id="descripcion" name="descripcion" required><br>
-    <label for="stock">Stock:</label>
-    <input type="number" id="stock" name="stock" required><br>
-    <label for="tamanio">Tamaño:</label>
-    <input type="text" id="tamanio" name="tamanio" required><br>
-    <label for="precio">Precio:</label>
-    <input type="number" step="0.01" id="precio" name="precio" required><br>
-    <label for="imagenProducto">Imagen del producto:</label>
-    <input type="file" id="imagenProducto" name="imagen">
-    <label for="proveedorProducto">Proveedor:</label>
-    <input type="text" id="proveedorProducto" name="proveedor">
-    <button type="submit">Agregar Producto</button>
-    <a href="./menúCRUD.html">Menu principal</a>
+    <form id="formulario" enctype="multipart/form-data>
+        <label for="codigo">Código:</label>
+        <input type="text" id="codigo" name="codigo" required><br>
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="codigo" name="codigo" required><br>
+        <label for="descripcion">Descripción:</label>
+        <input type="text" id="descripcion" name="descripcion" required><br>
+        <label for="stock">Stock:</label>
+        <input type="number" id="stock" name="stock" required><br>
+        <label for="tamanio">Tamaño:</label>
+        <input type="text" id="tamanio" name="tamanio" required><br>
+        <label for="precio">Precio:</label>
+        <input type="number" step="0.01" id="precio" name="precio" required><br>
+        <label for="imagenProducto">Imagen del producto:</label>
+        <input type="file" id="imagenProducto" name="imagen">
+        <label for="proveedorProducto">Proveedor:</label>
+        <input type="text" id="proveedorProducto" name="proveedor">
+        <button type="submit">Agregar Producto</button>
+        <a href="./menúCRUD.html">Menu principal</a>
     </form>
 </body>
 

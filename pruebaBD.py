@@ -20,13 +20,24 @@ CORS(app)  # Esto habilitará CORS para todas las rutas
 class Catalogo:
     
     def __init__(self, host, user, password, database):
+        # Primero, establecemos una conexión sin especificar la base de datos
         self.conn = mysql.connector.connect(
-            host=host, 
-            user=user, 
-            password=password, 
-            database=database 
+            host=host,
+            user=user,
+            password=password
         )
-        self.cursor = self.conn.cursor(dictionary=True)
+        self.cursor = self.conn.cursor()
+
+        # Intentamos seleccionar la base de datos
+        try:
+            self.cursor.execute(f"USE {database}")
+        except mysql.connector.Error as err:
+            # Si la base de datos no existe, la creamos
+            if err.errno == mysql.connector.errorcode.ER_BAD_DB_ERROR:
+                self.cursor.execute(f"CREATE DATABASE {database}")
+                self.conn.database = database
+            else:
+                raise err
         self.cursor.execute('''CREATE TABLE IF NOT EXISTS productos (
             codigo INT,
             nombre VARCHAR(255) NOT NULL,
@@ -37,6 +48,8 @@ class Catalogo:
             imagen_url VARCHAR(255),
             proveedor VARCHAR(255))''')
         self.conn.commit()
+        self.cursor.close()
+        self.cursor = self.conn.cursor(dictionary=True)
 
     #agregar prod
     def agregar_producto(self, codigo, nombre, descripcion, precio, tamanio, stock, imagen, proveedor):
@@ -45,10 +58,8 @@ class Catalogo:
         if producto_existe:
             return False
         
-        sql = f"INSERT INTO productos \
-            (codigo, nombre, descripcion, precio, tamanio, stock,  imagen_url, proveedor)  VALUES (%s, %s, %s, %s, %s, %s, %s, %s)" 
-            #({codigo}, '{nombre}', '{descripcion}', {precio}, '{tamanio}', {stock},  '{imagen}', '{proveedor}')"
-        valores = (codigo, nombre, descripcion ,precio, tamanio, stock,  imagen , proveedor)
+        sql = "INSERT INTO productos (codigo, nombre, descripcion, precio, unidad, cantidad, imagen_url, proveedor) VALUES (%s, %s, %s, %s, %s, %s, %s, %s)"
+        valores = (codigo, nombre, descripcion ,precio, tamanio , stock,  imagen , proveedor)
         self.cursor.execute(sql, valores)
         self.conn.commit()
         print("Producto agregado correctamente.")
@@ -96,7 +107,7 @@ class Catalogo:
             tamanio = '{nuevo_tamanio}', \
             stock = '{nuevo_stock}', \
             imagen_url = '{nueva_imagen}', \
-            proveedor ='{nuevo_proveedor}', \
+            proveedor ='{nuevo_proveedor}' \
             WHERE codigo = {codigo}"
         self.cursor.execute(sql)
         self.conn.commit()
@@ -147,30 +158,13 @@ class Catalogo:
             print("Producto no encontrado.")
 
 
-catalogo = Catalogo(host='localhost', user='root', password='', database='productospetshop')
-#catalogo.agregar_producto(1, 'Pienso para perros', 'Pienso para perros adultos', 1000.36, '1kg', 10, 'pienso.png', 'Purina')
-# catalogo.agregar_producto(2, 'Pienso para gatos', 'Pienso para gatos adultos', 1000.00, '1kg', 10, 'pienso.', 'Purina')
+catalogo = Catalogo(host='localhost', user='root', password='', database='pawproductos')
+catalogo.agregar_producto(1, 'Pienso para perros', 'Pienso para perros adultos', 1000, '1kg', 10, 'pienso.png', 'purina')
+# catalogo.agregar_producto(2, 'Pienso para gatos', 'Pienso para gatos adultos', 1000.00, '1kg', 10, 'pienso.')
+#catalogo.agregar_producto(3, 'Pienso para conejos', 'Pienso para gatos adultos', 1000.00, '1kg', 10, 'pienso.png', 'purina')
 
 #Carpeta para guardar las imagenes.
 RUTA_DESTINO = './imagen_inventario/'
-
-#--------------------------------------------------------------------
-@app.route("/productos", methods=["GET"])
-def listar_productos():
-    productos = catalogo.listar_productos()
-    return jsonify(productos)
-
-
-#--------------------------------------------------------------------
-@app.route("/productos/<int:codigo>", methods=["GET"])
-def mostrar_producto(codigo):
-    producto = catalogo.consultar_producto(codigo)
-    if producto:
-        return jsonify(producto), 201
-    else:
-        return "Producto no encontrado", 404
-
-
 #--------------------------------------------------------------------
 @app.route("/productos", methods=["POST"])
 def agregar_producto():
@@ -197,6 +191,25 @@ def agregar_producto():
         return jsonify({"mensaje": "Producto agregado"}), 201
     else:
         return jsonify({"mensaje": "Producto ya existe"}), 400
+
+
+#--------------------------------------------------------------------
+@app.route("/productos", methods=["GET"])
+def listar_productos():
+    productos = catalogo.listar_productos()
+    return jsonify(productos)
+
+
+#--------------------------------------------------------------------
+@app.route("/productos/<int:codigo>", methods=["GET"])
+def mostrar_producto(codigo):
+    producto = catalogo.consultar_producto(codigo)
+    if producto:
+        return jsonify(producto), 201
+    else:
+        return "Producto no encontrado", 404
+
+
 
 #--------------------------------------------------------------------
 @app.route("/productos/<int:codigo>", methods=["PUT"])
