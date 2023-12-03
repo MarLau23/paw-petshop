@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, render_template, request, redirect, url_for
 from flask import request
 
 # Instalar con pip install flask-cors
@@ -45,7 +45,7 @@ class Catalogo:
             precio DECIMAL(10, 2) NOT NULL,
             tamanio VARCHAR(10),
             stock INT NOT NULL,
-            imagen_url VARCHAR(255),
+            imagen VARCHAR(255),
             proveedor VARCHAR(255))''')
         self.conn.commit()
         self.cursor.close()
@@ -58,8 +58,8 @@ class Catalogo:
         if producto_existe:
             return False
         
-        sql = "INSERT INTO productos (codigo, nombre, descripcion, precio, unidad, cantidad, imagen_url, proveedor) VALUES (%s, %s, %s, %s, %s, %s, %s, %s)"
-        valores = (codigo, nombre, descripcion ,precio, tamanio , stock,  imagen , proveedor)
+        sql = "INSERT INTO productos (codigo, nombre, descripcion, precio, tamanio, stock, imagen, proveedor) VALUES (%s, %s, %s, %s, %s, %s, %s, %s)"
+        valores = (codigo, nombre, descripcion ,precio, tamanio , stock,  imagen, proveedor)
         self.cursor.execute(sql, valores)
         self.conn.commit()
         print("Producto agregado correctamente.")
@@ -106,7 +106,7 @@ class Catalogo:
             precio = '{nuevo_precio}', \
             tamanio = '{nuevo_tamanio}', \
             stock = '{nuevo_stock}', \
-            imagen_url = '{nueva_imagen}', \
+            imagen= '{nueva_imagen}', \
             proveedor ='{nuevo_proveedor}' \
             WHERE codigo = {codigo}"
         self.cursor.execute(sql)
@@ -158,10 +158,10 @@ class Catalogo:
             print("Producto no encontrado.")
 
 
-catalogo = Catalogo(host='localhost', user='root', password='', database='pawproductos')
-catalogo.agregar_producto(1, 'Pienso para perros', 'Pienso para perros adultos', 1000, '1kg', 10, 'pienso.png', 'purina')
-# catalogo.agregar_producto(2, 'Pienso para gatos', 'Pienso para gatos adultos', 1000.00, '1kg', 10, 'pienso.')
-#catalogo.agregar_producto(3, 'Pienso para conejos', 'Pienso para gatos adultos', 1000.00, '1kg', 10, 'pienso.png', 'purina')
+catalogo = Catalogo(host='localhost', user='root', password='', database='paw_petproductos')
+#catalogo.agregar_producto(1, 'Pienso para perros', 'Pienso para perros adultos', 1000, '1kg', 10, 'eso.png', 'purina')
+# catalogo.agregar_producto(2, 'Pienso para gatos', 'Pienso para gatos adultos', 1000.00, '1kg', 10, 'comida.png', 'purina')
+# catalogo.agregar_producto(3, 'Pienso para conejos', 'Pienso para gatos adultos', 1000.00, '1kg', 10, 'pienso.png', 'purina')
 
 #Carpeta para guardar las imagenes.
 RUTA_DESTINO = './imagen_inventario/'
@@ -182,11 +182,11 @@ def agregar_producto():
     producto = catalogo.consultar_producto(codigo)
     if not producto: # Si no existe el producto...
         # Genero el nombre de la imagen
-        nombre_imagen = secure_filename(imagen.filename)
-        nombre_base, extension = os.path.splitext(nombre_imagen)
+        imagen = secure_filename(imagen.filename)
+        nombre_base, extension = os.path.splitext(imagen)
         nombre_imagen = f"{nombre_base}_{int(time.time())}{extension}"
 
-    if catalogo.agregar_producto(codigo, nombre, descripcion, precio, tamanio, stock, nombre_imagen, proveedor):
+    if catalogo.agregar_producto(codigo, nombre, descripcion, precio, tamanio, stock, imagen, proveedor):
         imagen.save(os.path.join(RUTA_DESTINO, nombre_imagen))
         return jsonify({"mensaje": "Producto agregado"}), 201
     else:
@@ -220,8 +220,8 @@ def modificar_producto(codigo):
     nuevo_precio = request.form.get("precio")
     nuevo_tamanio = request.form['tamanio']
     nuevo_stock = request.form.get("stock")
-    nuevo_proveedor = request.form.get("proveedor")
     imagen = request.files['imagen']
+    nuevo_proveedor = request.form.get("proveedor")
 
     # Procesamiento de la imagen
     nombre_imagen = secure_filename(imagen.filename)
@@ -232,9 +232,9 @@ def modificar_producto(codigo):
     # Busco el producto guardado
     producto = producto = catalogo.consultar_producto(codigo)
     if producto: # Si existe el producto...
-        imagen_vieja = producto["imagen_url"]
+        imagen= producto["imagen"]
         # Armo la ruta a la imagen
-        ruta_imagen = os.path.join(RUTA_DESTINO, imagen_vieja)
+        ruta_imagen = os.path.join(RUTA_DESTINO, imagen)
 
         # Y si existe la borro.
         if os.path.exists(ruta_imagen):
