@@ -39,20 +39,21 @@ class Catalogo:
         self.conn.commit()
 
     #agregar prod
-    def agregar_producto(self, codigo, nombre, desccripcion, precio, tamanio, stock, imagen, proveedor):
+    def agregar_producto(self, codigo, nombre, descripcion, precio, tamanio, stock, imagen, proveedor):
         self.cursor.execute(f"SELECT * FROM productos WHERE codigo ={codigo}")
         producto_existe = self.cursor.fetchone()
         if producto_existe:
             return False
         
         sql = f"INSERT INTO productos \
-            (codigo, nombre, descripcion,precio, tamanio, stock,  imagen_url, proveedor) \
-            VALUES \
-            ({codigo}, '{nombre}', '{descripcion}', {precio}, '{tamanio}', {stock},  '{imagen}', '{proveedor}')"
-        valores = (codigo, nombre, desccripcion ,precio, tamanio , stock,  imagen , proveedor)
+            (codigo, nombre, descripcion, precio, tamanio, stock,  imagen_url, proveedor)  VALUES (%s, %s, %s, %s, %s, %s, %s, %s)" 
+            #({codigo}, '{nombre}', '{descripcion}', {precio}, '{tamanio}', {stock},  '{imagen}', '{proveedor}')"
+        valores = (codigo, nombre, descripcion ,precio, tamanio, stock,  imagen , proveedor)
         self.cursor.execute(sql, valores)
         self.conn.commit()
+        print("Producto agregado correctamente.")
         return True      
+
 
         # #crear diccionario si no existe algun prod con ese codigo
         # producto = {
@@ -122,7 +123,7 @@ class Catalogo:
             print(f"Nombre: {producto['nombre']}")
             print(f"Descripción: {producto['descripcion']}")
             print(f"Precio: {producto['precio']}")
-            print(f"Tamaño: {producto['tamanio']}")
+            print(f"Tamanio: {producto['tamanio']}")
             print(f"Stock: {producto['stock']}")
             print(f"Imagen: {producto['imagen']}")
             print(f"Proveedor: {producto['proveedor']}")
@@ -137,7 +138,7 @@ class Catalogo:
             print(f"Nombre: {producto['nombre']}")
             print(f"Descripción: {producto['descripcion']}")
             print(f"Precio: {producto['precio']}")
-            print(f"Tamaño: {producto['tamanio']}")
+            print(f"Tamanio: {producto['tamanio']}")
             print(f"Stock: {producto['stock']}")
             print(f"Imagen: {producto['imagen']}")
             print(f"Proveedor: {producto['proveedor']}")
@@ -147,6 +148,8 @@ class Catalogo:
 
 
 catalogo = Catalogo(host='localhost', user='root', password='', database='productospetshop')
+#catalogo.agregar_producto(1, 'Pienso para perros', 'Pienso para perros adultos', 1000.36, '1kg', 10, 'pienso.png', 'Purina')
+# catalogo.agregar_producto(2, 'Pienso para gatos', 'Pienso para gatos adultos', 1000.00, '1kg', 10, 'pienso.', 'Purina')
 
 #Carpeta para guardar las imagenes.
 RUTA_DESTINO = './imagen_inventario/'
@@ -178,8 +181,9 @@ def agregar_producto():
     stock = request.form['stock']
     tamanio = request.form['tamanio']
     precio = request.form['precio']
-    proveedor = request.form['proveedor']  
     imagen = request.files['imagen']
+    proveedor = request.form['proveedor']  
+    
     # Me aseguro que el producto exista
     producto = catalogo.consultar_producto(codigo)
     if not producto: # Si no existe el producto...
@@ -198,9 +202,10 @@ def agregar_producto():
 @app.route("/productos/<int:codigo>", methods=["PUT"])
 def modificar_producto(codigo):
     #Recojo los datos del form
+    nuevo_nombre= request.form.get("nombre")
     nueva_descripcion = request.form.get("descripcion")
     nuevo_precio = request.form.get("precio")
-    tamanio = request.form['tamanio']
+    nuevo_tamanio = request.form['tamanio']
     nuevo_stock = request.form.get("stock")
     nuevo_proveedor = request.form.get("proveedor")
     imagen = request.files['imagen']
