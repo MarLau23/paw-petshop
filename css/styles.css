@@ -1507,3 +1507,108 @@ textarea {
 .send-button:hover {
     background-color: var(--secondary);
 }
+/*menu CRUD*/
+.contenedorOpc{
+    background-color: var(--tertiary);
+    width: 25%;
+    position: relative;
+    left: 37.5%;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(var(--tertiary));
+    border-radius: 10px;
+    padding: 6px;
+    margin-bottom: 5%;
+}
+.buttonMenu button{
+    width: 50%;
+    position: relative;
+    left: 25%;
+    margin: 2%;
+    padding: 2%;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    color: var(--dark);
+    border: 1px solid var(--primary);
+    border-radius: 10px;
+}
+.buttonMenu button:hover{
+    background-color: var(--primary);
+    color: var(--light);
+    font-weight: bold;
+}
+/*agregar prod*/
+.agregarProducto{
+    width: 60%;
+    position: relative;
+    left: 20%;
+    padding: 3px;
+    background-color: var(--primary);
+    text-align: center;
+    border: 1px solid var(--primary);
+    border-radius: 5px;
+}
+.dropdown button{
+    width: 60%;
+    position: relative;
+    left: 20%;
+    margin-top: 3%;
+    background-color: var(--primary);
+    border: 1px solid var(--primary);
+    color: var(--dark);
+}
+/*listado de prod*/
+.tablaStock{
+    width: 50%;
+    position: relative;
+    left: 25%;
+    margin-bottom: 5%;
+}
+.tablaStock table{
+    width: 100%;
+    margin-bottom: 40px;
+    border: 1px solid var(--primary);
+    border-radius: 30px;
+}
+thead{
+    background-color: var(--primary);
+}
+tbody{
+    background-color: var(--tertiary);
+}
+tbody button{
+    border: 1px solid var(--primary); 
+    border-radius: 4px;
+    background-color:white;
+    color: var(--dark);
+}
+tbody button:hover{
+    background-color: var(--primary);
+}
+/*baja de prod*/
+.bajaProd{
+    width: 50%;
+    position: relative;
+    left: 25%;
+    margin-bottom: 5%;
+}
+.bajaProd table{
+    width: 100%;
+}
+/*modificar prod*/
+#app{
+    width: 50%;
+    position: relative;
+    left: 25%;
+}
+.modificarProd{
+    width: 60%;
+    position: relative;
+    left: 20%;
+    padding: 3px;
+    background-color: var(--primary);
+    text-align: center;
+    border: 1px solid var(--primary);
+    border-radius: 5px;
+    display: block;
+}

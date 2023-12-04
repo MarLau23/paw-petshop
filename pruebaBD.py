@@ -159,36 +159,36 @@ class Catalogo:
 
 
 catalogo = Catalogo(host='localhost', user='root', password='', database='paw_petproductos')
-#catalogo.agregar_producto(1, 'Pienso para perros', 'Pienso para perros adultos', 1000, '1kg', 10, 'eso.png', 'purina')
-# catalogo.agregar_producto(2, 'Pienso para gatos', 'Pienso para gatos adultos', 1000.00, '1kg', 10, 'comida.png', 'purina')
-# catalogo.agregar_producto(3, 'Pienso para conejos', 'Pienso para gatos adultos', 1000.00, '1kg', 10, 'pienso.png', 'purina')
+#catalogo.agregar_producto(1, 'Pienso para perros', 'Pienso para perros adultos', 21000.99, '1kg', 10, 'eso.png', 'purina')
+#catalogo.agregar_producto(2, 'Pienso para gatos', 'Pienso para gatos', 13000.00, '1kg', 10, 'comida.png', 'purina')
+# catalogo.agregar_producto(5, 'Jueguete para gatos', 'jueguete', 16000.00, 'Pequeño', 10, 'jueguete.png', 'petgasper')
+#catalogo.listar_productos()
 
 #Carpeta para guardar las imagenes.
 RUTA_DESTINO = './imagen_inventario/'
 #--------------------------------------------------------------------
 @app.route("/productos", methods=["POST"])
 def agregar_producto():
-    #Recojo los datos del form
     codigo = request.form['codigo']
     nombre = request.form['nombre']
     descripcion = request.form['descripcion']
+    precio = request.form['precio']
     stock = request.form['stock']
     tamanio = request.form['tamanio']
-    precio = request.form['precio']
     imagen = request.files['imagen']
-    proveedor = request.form['proveedor']  
-    
-    # Me aseguro que el producto exista
+    proveedor = request.form['proveedor']
+
     producto = catalogo.consultar_producto(codigo)
-    if not producto: # Si no existe el producto...
-        # Genero el nombre de la imagen
-        imagen = secure_filename(imagen.filename)
-        nombre_base, extension = os.path.splitext(imagen)
+    if not producto:
+        nombre_imagen = secure_filename(imagen.filename)
+        nombre_base, extension = os.path.splitext(nombre_imagen)
         nombre_imagen = f"{nombre_base}_{int(time.time())}{extension}"
 
-    if catalogo.agregar_producto(codigo, nombre, descripcion, precio, tamanio, stock, imagen, proveedor):
-        imagen.save(os.path.join(RUTA_DESTINO, nombre_imagen))
-        return jsonify({"mensaje": "Producto agregado"}), 201
+        if catalogo.agregar_producto(codigo, nombre, descripcion, precio, tamanio, stock, nombre_imagen, proveedor):
+            imagen.save(os.path.join(RUTA_DESTINO, nombre_imagen))
+            return jsonify({"mensaje": "Producto agregado"}), 201
+        else:
+            return jsonify({"mensaje": "Producto ya existe"}), 400
     else:
         return jsonify({"mensaje": "Producto ya existe"}), 400
 

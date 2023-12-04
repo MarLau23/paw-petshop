@@ -96,67 +96,68 @@
    
     
     <!--enctype="multipart/form-data es necesario para enviar archivos al back.-->
-    <form id="formulario" enctype="multipart/form-data>
-        <label for="codigo">Código:</label>
-        <input type="text" id="codigo" name="codigo" required><br>
-        <label for="nombre">Nombre:</label>
-        <input type="text" id="codigo" name="codigo" required><br>
-        <label for="descripcion">Descripción:</label>
-        <input type="text" id="descripcion" name="descripcion" required><br>
-        <label for="stock">Stock:</label>
-        <input type="number" id="stock" name="stock" required><br>
-        <label for="tamanio">Tamaño:</label>
-        <input type="text" id="tamanio" name="tamanio" required><br>
-        <label for="precio">Precio:</label>
-        <input type="number" step="0.01" id="precio" name="precio" required><br>
-        <label for="imagenProducto">Imagen del producto:</label>
-        <input type="file" id="imagen_url" name="imagen">
-        <label for="proveedorProducto">Proveedor:</label>
-        <input type="text" id="proveedor" name="proveedor">
-        <button type="submit">Agregar Producto</button>
-        <a href="./menúCRUD.html">Menu principal</a>
-    </form>
+<form id="formulario" enctype="multipart/form-data">
+    <label for="codigo">Código:</label>
+    <input type="text" id="codigo" name="codigo" required><br>
+    <label for="nombre">Nombre:</label>
+    <input type="text" id="nombre" name="nombre" required><br>
+    <label for="descripcion">Descripción:</label>
+    <input type="text" id="descripcion" name="descripcion" required><br>
+    <label for="precio">Precio:</label>
+    <input type="number" step="0.01" id="precio" name="precio" required><br>
+    <label for="tamanio">Tamaño:</label>
+    <input type="text" id="tamanio" name="tamanio" required><br>
+    <label for="stock">Stock:</label>
+    <input type="number" id="stock" name="stock" required><br>
+    <label for="imagen">Imagen del producto:</label>
+    <input type="file" id="imagen" name="imagen">
+    <label for="proveedor">Proveedor:</label>
+    <input type="text" id="proveedor" name="proveedor">
+    <button type="submit">Agregar Producto</button>
+    <a href="./menúCRUD.html">Menu principal</a>
+</form>
 </body>
 
 <script>
-    const URL = "http://127.0.0.1:5000/"
-    // Capturamos el evento de envío del productos
-    document.getElementById('/productos/<int:codigo>').addEventListener('submit', function (event) {
-    event.preventDefault(); // Evitamos que se envie el form
-    var formData = new FormData();
-    formData.append('codigo', document.getElementById('codigo').value);
-    formData.append('nombre', document.getElementById('nombre').value);
-    formData.append('descripcion', document.getElementById('descripcion').value);
-    formData.append('stock', document.getElementById('stock').value);
-    formData.append('tamanio', document.getElementById('tamanio').value);
-    formData.append('precio', document.getElementById('precio').value);
-    formData.append('imagen_url', document.getElementById('imagen_url').files[0]);
-    formData.append('proveedor', document.getElementById('proveedor').value);
-    fetch(URL + '/productos', {
-    method: 'POST',
-    body: formData // Aquí enviamos formData en lugar de JSON
-    })
-    .then(function (response) {
-    if (response.ok) { return response.json(); }
-    })
-    .then(function (data) {
-    alert('Producto agregado correctamente.');
-    // Limpiar el formulario para el proximo producto
-    document.getElementById('codigo').value = "";
-    document.getElementById('nombre').value = "";
-    document.getElementById('descripcion').value = "";
-    document.getElementById('stock').value = "";
-    document.getElementById('tamanio').value = "";
-    document.getElementById('precio').value = "";
-    document.getElementById('imagen_url').value = "";
-    document.getElementById('proveedor').value = "";
-    })
-    .catch(function (error) {
-    // Mostramos el error, y no limpiamos el form.
-    alert('Error al agregar el producto.');
+    const URL = "http://127.0.0.1:5000/";
+    // Capturamos el evento de envío del producto
+    document.getElementById('formulario').addEventListener('submit', function (event) {
+        event.preventDefault(); // Evitamos que se envíe el formulario
+        var formData = new FormData();
+        formData.append('codigo', document.getElementById('codigo').value);
+        formData.append('nombre', document.getElementById('nombre').value);
+        formData.append('descripcion', document.getElementById('descripcion').value);
+        formData.append('precio', document.getElementById('precio').value);
+        formData.append('stock', document.getElementById('stock').value);
+        formData.append('tamanio', document.getElementById('tamanio').value);
+        formData.append('imagen', document.getElementById('imagen').files[0]);
+        formData.append('proveedor', document.getElementById('proveedor').value);
+        fetch(URL + '/productos', {
+            method: 'POST',
+            body: formData // Aquí enviamos formData en lugar de JSON
+        })
+        .then(function (response) {
+            if (response.ok) { return response.json(); }
+        })
+        .then(function (data) {
+            alert('Producto agregado correctamente.');
+            // Limpiar el formulario para el próximo producto
+            document.getElementById('codigo').value = "";
+            document.getElementById('nombre').value = "";
+            document.getElementById('descripcion').value = "";
+            document.getElementById('precio').value = "";
+            document.getElementById('stock').value = "";
+            document.getElementById('tamanio').value = "";
+            document.getElementById('imagen').value = "";
+            document.getElementById('proveedor').value = "";
+        })
+        .catch(function (error) {
+            // Mostramos el error, y no limpiamos el formulario.
+            alert('Error al agregar el producto.');
+        });
     });
-    })
-    </script>
+</script>
+
     <footer class="footer">
         <div class="logo">
             <!-- <picture class=""> -->
