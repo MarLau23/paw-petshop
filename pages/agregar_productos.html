@@ -4,12 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="shortcut icon" href="./img/favicon.png" type="image/x-icon">
+    <link rel="shortcut icon" href="../img/favicon.png" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="../css/mediaQueries.css">
-    <title>Paw | PetShop</title>
+    <title>Paw | Alta de Productos</title>
 </head>
 <body>
     <header>
@@ -56,27 +57,27 @@
 
         <!-- Navbar Start -->
         <nav class="navbar">
-            <img src="./img/isologo.png" class="logo" alt="logo petshop paw">
-            <input type="checkbox" id="menu-check">
+            <img src="../img/isologo.png" class="logo" alt="logo petshop paw">
+            <!-- <input type="checkbox" id="menu-check">
             <label id="menu" for="menu-check">
                 <span id="menu-abrir">&#9776;</span>
                 <span id="menu-cerrar">X</span>
-            </label> 
+            </label> -->
             <ul class="menu" id="menu">
                 <!-- <li><a href="#">Home</a></li> -->
-                <li><a href="./pages/services.html">Servicios</a>
+                <li><a href="../pages/services.html">Servicios</a>
                     <ul class="submenu" id="submenu">
-                        <li><a href="./pages/services.html#alojamiento">Alojamiento para Mascotas</a></li>
+                        <li><a href="../pages/services.html#alojamiento">Alojamiento para Mascotas</a></li>
                         <li><a href="https://www.petfinder.com/cat/nebula-124/nj/jersey-city/nj333-petfinder-test-account/?referrer_id=d7e3700b-2e07-11e9-b3f3-0800275f82b1">
                             Adopciones</a></li>
-                        <li><a href="./pages/services.html#servicios">Aseo y tratamiento de mascotas</a></li>
-                        <li><a href="./pages/services.html#entrenamientoDeMascotas">Entrenamiento de Mascotas</a></li>
-                        <li><a href="./pages/services.html#colocacionDeMicrochip">Colocación de microchip</a></li>
+                        <li><a href="../pages/services.html#servicios">Aseo y tratamiento de mascotas</a></li>
+                        <li><a href="../pages/services.html#entrenamientoDeMascotas">Entrenamiento de Mascotas</a></li>
+                        <li><a href="../pages/services.html#colocacionDeMicrochip">Colocación de microchip</a></li>
                     </ul>
-                <li><a href="./pages/products.html">Productos</a></li>
+                <li><a href="../pages/products.html">Productos</a></li>
                 <!-- <li><a href="./pages/about.html">Nosotros</a></li> -->
                 <!-- <li><a href="./pages/about.html">Nosotros</a></li> -->
-                <li><a href="./pages/contact.html">Contacto</a></li>
+                <li><a href="../pages/contact.html">Contacto</a></li>
             </ul>
             <div class="menu-bar" id="menu-bar">
                 <i class="fa-solid fa-bars"></i>
@@ -91,72 +92,152 @@
                 <i class="fa-solid fa-cart-shopping"></i>
             </div>
         </nav>
+        <!-- Navbar End -->
+        <style>
+            .producto {
+                border: 1px solid #ccc;
+                margin: 10px;
+                padding: 10px;
+                display: inline-block;
+            }
+    
+            img {
+                max-width: 100%;
+                height: auto;
+            }
+        </style>
 <body>
-    <h1 class="text-center">Agregar Productos al Inventario</h1>
-   
+    <h1 id="tituloProd">Agregar Productos al Inventario</h1>
+    
     
     <!--enctype="multipart/form-data es necesario para enviar archivos al back.-->
-<form id="formulario" enctype="multipart/form-data">
-    <label for="codigo">Código:</label>
-    <input type="text" id="codigo" name="codigo" required><br>
-    <label for="nombre">Nombre:</label>
-    <input type="text" id="nombre" name="nombre" required><br>
-    <label for="descripcion">Descripción:</label>
-    <input type="text" id="descripcion" name="descripcion" required><br>
-    <label for="precio">Precio:</label>
-    <input type="number" step="0.01" id="precio" name="precio" required><br>
-    <label for="tamanio">Tamaño:</label>
-    <input type="text" id="tamanio" name="tamanio" required><br>
-    <label for="stock">Stock:</label>
-    <input type="number" id="stock" name="stock" required><br>
-    <label for="imagen">Imagen del producto:</label>
-    <input type="file" id="imagen" name="imagen">
-    <label for="proveedor">Proveedor:</label>
-    <input type="text" id="proveedor" name="proveedor">
-    <button type="submit">Agregar Producto</button>
-    <a href="./menúCRUD.html">Menu principal</a>
-</form>
-</body>
+    <form id="formulario" enctype="multipart/form-data">
+        <label for="codigo">Código:</label>
+        <input type="text" id="codigo" name="codigo" required><br>
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" required><br>
+        <label for="descripcion">Descripción:</label>
+        <input type="text" id="descripcion" name="descripcion" required><br>
+        <label for="precio">Precio:</label>
+        <input type="number" step="0.01" id="precio" name="precio" required><br>
+        <label for="tamanio">Tamaño:</label>
+        <input type="text" id="tamanio" name="tamanio" required><br>
+        <label for="stock">Stock:</label>
+        <input type="number" id="stock" name="stock" required><br>
+        <label for="imagen">Imagen del producto:</label>
+        <input type="file" id="imagen" name="imagen">
+        <label for="proveedor">Proveedor:</label>
+        <input type="text" id="proveedor" name="proveedor">
+        <button type="button" onclick="agregarProducto()">Agregar Producto</button>
+        <div class="dropdown">
+            <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            MENÚ
+            </button>
+            <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="./listarProd.html">Productos en Stock</a></li>
+            <li><a class="dropdown-item" href="./modificarProd.html">Modificar Productos</a></li>
+            <li><a class="dropdown-item" href="./eliminarProd.html">Eliminar Productos</a></li>
+            </ul>
+        </div>
+    </form>
+    <footer class="footer">
+        <div class="logo">
+            <!-- <picture class=""> -->
+                <img alt="full logo" src="../img/isologo.png">
+            <!-- </picture> -->
+        </div>
+        <div class="left">
+            <ul class="list-pages">
+                <li class="item"><a href="#" class="link">Empresa</a></li>
+                <li class="item"><a href="./contact.html" class="link">Contacto</a></li>
+                <li class=item"><a href="#" class="link">Blog</a></li>
+                <li class="item"><a href="./terminosyCondiciones.html" class="link">Términos y Condiciones</a></li>
+                <li class="item"><a href="./botonDeArrepentimiento.html" class="link">Botón de arrepentimiento</a></li>
+            </ul>
+        </div>
+        <div class="right">
+            <h5 class="title">Suscríbete a nuestro Newsletter</h5>
+            <form action="" class="data">
+                <input type="email" placeholder="nombre@mail.com" class="email">
+                <input type="submit" value="Enviar" class="submit">
+            </form>
+            <h5 class="rrss">Nuestras Redes Sociales</h5>
+            <ul class="list-rrss">
+                <li><i class="fa-brands fa-facebook-f"></i></li>
+                <li><i class="fa-brands fa-x-twitter"></i></li>
+                <li><i class="fa-brands fa-instagram"></i></li>
+            </ul>
+        </div>
+        <div class="foot">
+            <p class="copy-bigfoot">Todos los derechos reservados ©2023 | Hecho con <span class="heart">♥️ </span>by  <a href="#">Paw PetShop</a>.</p>
+        </div>
+    
+        <div class="dog-snout">
+            <img src="../img/dog-snout.png">
+        </div>
+    </footer>
+    
+    
+    <script src="https://kit.fontawesome.com/7a9e4a4ed4.js" crossorigin="anonymous"></script>
+    <script src="../js/script.js"></script>
 
-<script>
-    const URL = "http://127.0.0.1:5000/";
-    // Capturamos el evento de envío del producto
-    document.getElementById('formulario').addEventListener('submit', function (event) {
-        event.preventDefault(); // Evitamos que se envíe el formulario
-        var formData = new FormData();
-        formData.append('codigo', document.getElementById('codigo').value);
-        formData.append('nombre', document.getElementById('nombre').value);
-        formData.append('descripcion', document.getElementById('descripcion').value);
-        formData.append('precio', document.getElementById('precio').value);
-        formData.append('stock', document.getElementById('stock').value);
-        formData.append('tamanio', document.getElementById('tamanio').value);
-        formData.append('imagen', document.getElementById('imagen').files[0]);
-        formData.append('proveedor', document.getElementById('proveedor').value);
-        fetch(URL + '/productos', {
-            method: 'POST',
-            body: formData // Aquí enviamos formData en lugar de JSON
-        })
-        .then(function (response) {
-            if (response.ok) { return response.json(); }
-        })
-        .then(function (data) {
-            alert('Producto agregado correctamente.');
-            // Limpiar el formulario para el próximo producto
-            document.getElementById('codigo').value = "";
-            document.getElementById('nombre').value = "";
-            document.getElementById('descripcion').value = "";
-            document.getElementById('precio').value = "";
-            document.getElementById('stock').value = "";
-            document.getElementById('tamanio').value = "";
-            document.getElementById('imagen').value = "";
-            document.getElementById('proveedor').value = "";
-        })
-        .catch(function (error) {
-            // Mostramos el error, y no limpiamos el formulario.
-            alert('Error al agregar el producto.');
-        });
-    });
-</script>
+    <div id="productosContainer"></div>
+
+    <script>
+        const URL = "http://127.0.0.1:5000";
+
+        function agregarProducto() {
+            const formulario = document.getElementById("formulario");
+            const formData = new FormData(formulario);
+
+            fetch(`${URL}/productos`, {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                alert(data.mensaje);
+                if (data.mensaje === "Producto agregado") {
+                    cargarProductos();
+                    formulario.reset();
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        }
+
+        function cargarProductos() {
+            fetch(`${URL}/productos`)
+            .then(response => response.json())
+            .then(productos => {
+                const productosContainer = document.getElementById("productosContainer");
+                productosContainer.innerHTML = ""; // Limpiamos el contenedor
+
+                productos.forEach(producto => {
+                    const productoDiv = document.createElement("div");
+                    productoDiv.classList.add("producto");
+
+                    // Mostramos información del producto
+                    productoDiv.innerHTML = `
+                        <h3>${producto.nombre}</h3>
+                        <p>Descripción: ${producto.descripcion}</p>
+                        <p>Precio: ${producto.precio}</p>
+                        <p>Stock: ${producto.stock}</p>
+                        <img src="${URL}/imagen_inventario/${producto.imagen}" alt="${producto.nombre}">
+                    `;
+
+                    productosContainer.appendChild(productoDiv);
+                });
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        }
+
+        // Cargar productos al cargar la página
+        window.onload = cargarProductos;
+    </script>
 
     <footer class="footer">
         <div class="logo">
@@ -205,5 +286,7 @@
 
     <script src="https://kit.fontawesome.com/7a9e4a4ed4.js" crossorigin="anonymous"></script>
     <script src="./js/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
 </body>
 </html>

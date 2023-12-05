@@ -7,10 +7,11 @@
     <link rel="shortcut icon" href="../img/favicon.png" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="../css/mediaQueries.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <title>Paw | Productos</title>
+    <title>Paw | Productos en Stock</title>
 </head>
 <body>
     <header>
@@ -77,28 +78,123 @@
                 <i class="fa-solid fa-cart-shopping"></i>
             </div>
         </nav>
-    </header>
-    <h1 id="tituloProd">Paw Pet Shop Panel Administrador</h1>
-    <main>
-    <h1>Listado de Productos</h1>
-    <table>
-        <thead>
-            <tr>
-                <th>Código</th>
-                <th>Descripción</th>
-                <th>Cantidad</th>                
-                <th align="right">Precio</th>
-                <th>Imagen</th>
-                <th align="right">Proveedor</th>
-            </tr>
-        </thead>
-        <tbody id="tablaProductos"> </tbody>
-    </table>
 
-    <div class="contenedor-centrado">
-        <a href="./menúCRUD.html">Menu principal</a>
-    </div>
-    </main>
+        <main>
+            <h1 id="tituloProd">Paw Pet Shop Panel Administrador</h1>
+    <main>
+        <main>
+            <h2 id="tituloProd">PRODUCTOS EN STOCK</h2>
+            
+        </main>
+            <div id="app">
+                <div class="row">
+                    <div class="col">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Código</th>
+                                    <th>Nombre</th>
+                                    <th>Descripción</th>
+                                    <th>Stock</th>
+                                    <th align="right">Precio</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr v-for="producto in productos">
+                                    <td>{{ producto.codigo }}</td>
+                                    <td>{{ producto.nombre }}</td>
+                                    <td>{{ producto.descripcion }}</td>
+                                    <td>{{ producto.stock }}</td>
+                                    <td align="right">{{ producto.precio }}</td>
+                                    <td>
+                                        <button @click="modificarProducto(producto.codigo)">Modificar</button>
+                                        <button @click="eliminarProducto(producto.codigo)">Eliminar</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <!-- Agrega otros elementos HTML según sea necesario -->
+    
+            <div class="dropdown">
+                <div class="dropdown">
+                    <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    MENÚ
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="./agregar_productos.html">Agregar Productos</a></li>
+                        <li><a class="dropdown-item" href="./modificarProd.html">Modificar Productos</a></li>
+                        <li><a class="dropdown-item" href="./eliminarProd.html">Eliminar Productos</a></li>
+                    </ul>
+                </div>
+            </div>
+        </main>
+
+        <!-- Modifica el script para que se ajuste a tu estructura -->
+        <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+        <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            productos: []
+        },
+        mounted() {
+            // Realiza una solicitud al backend para obtener la lista de productos
+            $.ajax({
+                url: 'http://127.0.0.1:5000/productos',
+                type: 'GET',
+                success: (data) => {
+                    // Actualiza la lista de productos en el front-end
+                    this.productos = data;
+                },
+                error: (error) => {
+                    console.error('Error al obtener productos:', error);
+                }
+            });
+        },
+        methods: {
+            confirmarEliminar(codigo) {
+                // Muestra una ventana de confirmación antes de eliminar el producto
+                if (window.confirm('¿Estás seguro de que quieres eliminar este producto?')) {
+                    this.eliminarProducto(codigo);
+                }
+            },
+            eliminarProducto(codigo) {
+                // Realiza una solicitud DELETE a la ruta correspondiente en Flask
+                axios.delete(`http://127.0.0.1:5000/productos/${codigo}`)
+                    .then(response => {
+                        // Maneja la respuesta aquí (puede redirigir o mostrar un mensaje, por ejemplo)
+                        console.log(response.data);
+                        // Actualiza la lista de productos después de eliminar
+                        this.productos = this.productos.filter(producto => producto.codigo !== codigo);
+                    })
+                    .catch(error => {
+                        // Maneja el error aquí
+                        console.error(error);
+                    });
+            },
+            modificarProducto(codigo) {
+                // Puedes redirigir después de hacer clic en el botón Modificar
+                window.location.href = './modificarProd.html?codigo=' + codigo;
+            }
+        }
+    });
+</script>
+
+<!-- ... (código HTML existente) ... -->
+
+        
+        
+
+<!------------------->
+    </header>
+    
+    
     <footer class="footer">
         <div class="logo">
             <!-- <picture class=""> -->
@@ -143,7 +239,7 @@
     </footer>
 
 
-
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/7a9e4a4ed4.js" crossorigin="anonymous"></script>
     <script src="./js/script.js"></script>
 </body>

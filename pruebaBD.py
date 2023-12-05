@@ -128,17 +128,22 @@ class Catalogo:
     def listar_productos(self):
         self.cursor.execute("SELECT * FROM productos")
         productos = self.cursor.fetchall()
-        print('-'*20)
+        lista_productos = []
+
         for producto in productos:
-            print(f"Código: {producto['codigo']}")
-            print(f"Nombre: {producto['nombre']}")
-            print(f"Descripción: {producto['descripcion']}")
-            print(f"Precio: {producto['precio']}")
-            print(f"Tamanio: {producto['tamanio']}")
-            print(f"Stock: {producto['stock']}")
-            print(f"Imagen: {producto['imagen']}")
-            print(f"Proveedor: {producto['proveedor']}")
-            print("-" * 20)
+            producto_info = {
+                "codigo": producto['codigo'],
+                "nombre": producto['nombre'],
+                "descripcion": producto['descripcion'],
+                "precio": producto['precio'],
+                "tamanio": producto['tamanio'],
+                "stock": producto['stock'],
+                "imagen": producto['imagen'],
+                "proveedor": producto['proveedor']
+            }
+            lista_productos.append(producto_info)
+
+        return lista_productos
 #--------------------------------------------------------------------------------------------
     #mostrar prod
     def mostrar_producto(self, codigo):
@@ -252,7 +257,7 @@ def eliminar_producto(codigo):
     # Busco el producto guardado
     producto = producto = catalogo.consultar_producto(codigo)
     if producto: # Si existe el producto...
-        imagen_vieja = producto["imagen_url"]
+        imagen_vieja = producto["imagen"]
         # Armo la ruta a la imagen
         ruta_imagen = os.path.join(RUTA_DESTINO, imagen_vieja)
 
